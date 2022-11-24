@@ -73,6 +73,6 @@ A DNS Zone Transfer is the process to move zone Files from one DNS-Server to ano
 ### Host Discovery with NMAP
 - sN Option -> No Port-Scan Option, only Host discovery (Also known as Ping Scan or Ping Sweep) [nmap -sn 10.0.0.0/16]
 - 
-- 
+- OR USE NETDISCOVER to discover devices via ARP Requests. [sudo netdisvover]
 
 
