@@ -32,3 +32,8 @@ Information Gathering is the first step of any penetration test. It's one of the
 
 
 ### DNS Recon
+- dnsrecon -d gkd-group.com -> get all dns records (NS, A, TXT, MX ..)
+- dnsdumpster.io -> best dns reconnaicance tool for organized information!!!
+
+### Detect WAF with wafw00f
+
