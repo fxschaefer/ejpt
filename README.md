@@ -52,7 +52,7 @@ Information Gathering is the first step of any penetration test. It's one of the
 - Use GOOGLE HACKING DATABASE (GHDB) on exploit-db.com to show some interesting queries.
 
 ### E-Mail Harvesting with theHarvester
-- "theHarvester" command / program is preistalled on Kali & Parrot
+- theHarvester command / program is preistalled on Kali & Parrot
 - theHarvester -d example.com -l 500 -b linkedin -> searches for linkedin information to a given domain
 - spyse source is very interesting but requires a subscription
 
@@ -66,6 +66,13 @@ Information Gathering is the first step of any penetration test. It's one of the
 
 ### DNS Zone Transfers
 A DNS Zone Transfer is the process to move zone Files from one DNS-Server to another. If misconfigured and left unsecured, this functionality can be abused by attackers to copy the zone files from the primary DNS server to another DNS server. A DNS Zone transfer can provide penetrations testers with a holistic view of an organizations network layout. 
+- dnsenum example.com -> tries also to perform a Zone transfer
+- dig axfr @NAMESERVER DOMAIN -> axfr is the Zone Transfer Switch
+- fierce -dns hackersploit.org -> DNS Bruteforce
 
+### Host Discovery with NMAP
+- sN Option -> No Port-Scan Option, only Host discovery (Also known as Ping Scan or Ping Sweep) [nmap -sn 10.0.0.0/16]
+- 
+- 
 
 
