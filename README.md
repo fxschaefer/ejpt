@@ -1,4 +1,4 @@
-# ejpt
+# Assessment Methodologies: Information Gathering
 
 ## Information Gathering
 Information Gathering is the first step of any penetration test. It's one of the most important phases, because any further steps are relying on the information we've gathered. Typically we can devide Information-Gathering in two categories:
@@ -74,5 +74,47 @@ A DNS Zone Transfer is the process to move zone Files from one DNS-Server to ano
 - sN Option -> No Port-Scan Option, only Host discovery (Also known as Ping Scan or Ping Sweep) [nmap -sn 10.0.0.0/16]
 - 
 - OR USE NETDISCOVER to discover devices via ARP Requests. [sudo netdisvover]
+
+
+### Port Scanning with NMAP
+- Standard NMAP scan is a SYN scan for the 1000 most common ports
+- Windows Machine can block Ping requests by default. In this case, NMAP fires up the error "Host seems down.". In this case try the -Pn switch to avoid an availability Ping Scan. (DO not check if host is down)
+- nmap -Pn -p- x.x.x.x -> Scanning all Ports
+- nmap -Pn -p 80 -> Scan port 80
+- nmap -Pn -p 80,445,139 -> Scan a Port selection
+- nmap -Pn -p 21-100 -> Scan within a given Range
+- By default NMAP will perform a TCP Port-Scan. Use the -sU switch to perform a UDP scan.
+- -v switch increases the verbosity
+- -sV Service Version detection
+- -O switch performs a Operation System Scan (not very accurate)
+- -F Fast Switch (scan fewer ports than default)
+- -T1-5 switch to speed up a scan (0 = paranoid; 5 = insane)
+- -sU -> Perform a UDP Scan, because by default nmap will discover tcp connections. This scan will take some time!
+
+
+# Assessment Methodologies: Footprinting and Scanning
+
+## Mapping the Network
+- Before any Penetration Test will start, a Scope needs to be defined. It's important that a P-test will provide a value for a customer and will not knock-out production systems.
+- Physical Access (Physical Security, OSINT, Social Engineering)
+- Sniffing (Passive Recon, Watch network traffic)
+- ARP ()
+- ICMP (Tracroute, Ping)
+
+Tools -> WIRESHARK, ARP-SCAN, PING, FPING, NMAP, ZENMAP
+
+### ARP-SCAN
+- Run an ARP-SCAN via sudo arp-scan -I eth0 -g 10.0.0.0/16
+
+### FPING
+- Can send packets to multiple hosts at a time
+- fping -I eth0 -g 10.0.0.0/16 -a 2>/dev/null    (filter out errors with the last part)
+
+
+
+
+
+
+
 
 
