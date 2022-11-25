@@ -114,6 +114,17 @@ Tools -> WIRESHARK, ARP-SCAN, PING, FPING, NMAP, ZENMAP
 
 
 
+# Assessment Methodologies: Enumeration
+
+## SMB: Windows Discover and Mount
+- Discover via nmap (Usually Port 445 / 139 TCP).
+- Linux: List SMB shares of a Server -> smbclient -L //Server
+- Linux: Connect to SMB Share -> smbclient //Server/Share -U USERNAME
+- Windows: Connec to SMB Share -> net use Z: \\Server\\Share PASSWORD /user:USERNAME
+- Windows: Direct Access -> \\SERVER\SHARE
+
+## SMB: NMAP Scripts
+
 
 
 
