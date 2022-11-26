@@ -115,6 +115,8 @@ Tools -> WIRESHARK, ARP-SCAN, PING, FPING, NMAP, ZENMAP
 
 
 # Assessment Methodologies: Enumeration
+"Enumeration is the method that a penetration tester uses to identify information about in-scope assets."
+"Enumeration is defined as a process which establishes an active connection to the target hosts to discover potential attack vectors..."
 
 ## SMB: Windows Discover and Mount
 - Discover via nmap (Usually Port 445 / 139 TCP).
@@ -124,8 +126,20 @@ Tools -> WIRESHARK, ARP-SCAN, PING, FPING, NMAP, ZENMAP
 - Windows: Direct Access -> \\SERVER\SHARE
 
 ## SMB: NMAP Scripts
+- Run nmap and identify potential targets that are using smb.
+- After a target is identified, run nmap -p445 --script smb-protocols 10.x.x.x -> E.g. check if SMBv1 is used.
+- nmap -p445 --script smb-security-mode 10.x.x.x -> e.g. ceck is message signing is disabled.
+- nmap -p445 --script smb-enum-sessions 10.x.x.x -> Get active / logged on users with active sessions
+- nmap -p445 --script smb-enum-shares 10.x.x.x -> Share enumeration
+- nmap -p445 --script smb-enum-users --script-args smbusername=USERNAME,smbpassword=PASSWORD 10.x.x.x
+- nmap -p445 --script smb-enum-domains --script-args smbusername=USERNAME,smbpassword=PASSWORD 10.x.x.x 10.x.x.x
+- nmap -p445 --script smb-enum-shares,smb-ls --script-args smbusername=USERNAME,smbpassword=PASSWORD 10.x.x.x -> enum and list share content
 
 
-
+## SMB: SMBMAP
+- Knowing when there is a Server that supports smbv1, we can utilize smbmap with a null-session.
+- smbmap -u guest -p "" -d . -H 10.x.x.x
+- If you get results with guest user and a null session for more than read access to IPC$ and print$ share, you should report this.
+- SMBmap supports some other commands like uploading a file or listing a shared drive. See Documentation -> https://github.com/ShawnDEvans/smbmap
 
 
