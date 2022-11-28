@@ -90,6 +90,7 @@ A DNS Zone Transfer is the process to move zone Files from one DNS-Server to ano
 - -F Fast Switch (scan fewer ports than default)
 - -T1-5 switch to speed up a scan (0 = paranoid; 5 = insane)
 - -sU -> Perform a UDP Scan, because by default nmap will discover tcp connections. This scan will take some time!
+- --top-port 25 --open -> scan top 25 ports and filter for open ports
 
 
 # Assessment Methodologies: Footprinting and Scanning
@@ -143,3 +144,14 @@ Tools -> WIRESHARK, ARP-SCAN, PING, FPING, NMAP, ZENMAP
 - SMBmap supports some other commands like uploading a file or listing a shared drive. See Documentation -> https://github.com/ShawnDEvans/smbmap
 
 
+## Linux Samba
+- metasploit has some samba / smb enumeration and exploit tools
+- nmblookup -A <<IP-ADDRESS>>
+- If we can see IPC$ with a null session you can probably connect via rpc (rpcclient)
+
+With an anonymous null session you can access the IPC$ share and interact with services exposed via named pipes. The enum4linux utility within Kali Linux is particularly useful; with it, you can obtain the following:
+- Operating system information
+- Details of the parent domain
+- A list of local users and groups
+- Details of available SMB shares
+- The effective system security policy
