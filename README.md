@@ -253,8 +253,8 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - Connect to mysql via shell
     - mysql -h x.x.x.x -u root
   - show databases;
-  - use <database>;
-  - select * from <table>;
+  - use database;
+  - select * from table;
   - metasploit enumeration on writeable directories of the operating system
     - use auxiliary/scanner/mysql/mysql_writable_dirs (set options (dir_list etc.) and run the exploit and maybe set verbose to false because it will tell us a lot :D )
   - dump hashes with metasploit
