@@ -1,3 +1,20 @@
+# TOOLS TO MASTER
+- dirb (dirbuster)
+- gobuster
+- nmap
+- hydra
+- smbclient
+- rpcclient
+- enum4linux
+- dnsdumpster.io or dnsrecon
+- netcraft.com
+- smbmap
+- arp-scan
+- wireshark
+- dig
+- METASPLOIT
+- whatweb
+
 # Assessment Methodologies: Information Gathering
 
 ## Information Gathering
@@ -146,8 +163,9 @@ Tools -> WIRESHARK, ARP-SCAN, PING, FPING, NMAP, ZENMAP
 
 ## Linux Samba
 - metasploit has some samba / smb enumeration and exploit tools
-- nmblookup -A <<IP-ADDRESS>>
+- nmblookup -A <IP-ADDRESS>
 - If we can see IPC$ with a null session you can probably connect via rpc (rpcclient)
+- RPC NULL SESSION CONNECT: rpcclient -U '' -N 192.x.x.x
 
 With an anonymous null session you can access the IPC$ share and interact with services exposed via named pipes. The enum4linux utility within Kali Linux is particularly useful; with it, you can obtain the following:
 - Operating system information
@@ -155,3 +173,93 @@ With an anonymous null session you can access the IPC$ share and interact with s
 - A list of local users and groups
 - Details of available SMB shares
 - The effective system security policy
+
+## enum4linux
+  - Power Tools for Linux and Windows enumeration tasks
+  - USAGE: enum4linix -o 192.x.x.x
+
+## Check for SMB Dialect / Versions of smb2
+  - start metasploit
+  - use auxiliary/scanner/smb/smb2
+  - set RHOSTS x.x.x.x
+  - run
+  
+## User enumeration with SMB and RPC
+  - NMAP smb-enum-users script
+  - Enum4Linux -> shows users
+  - rpcclient NULL session and enter following command: enumdomusers
+  
+  
+## SMB Dictionary Attack
+  - Start Metasploit
+  - use auxiliary/scanner/smb/smb_login
+  - show options
+  - at least fill RHOSTS
+  - set an smb user
+  - set a pass_file
+  - run exploit
+  
+  - Using Hydra:
+  - hydra -l <USERNAME> -P <PATH TO PASS-FILE> <IP> smb
+  
+## Find out services which are piped through smb -> named pipes are used for service communication
+  - start metasploit
+  - use auxiliary/scanner/smb/pipe_auditor
+  - set smbuser
+  - set smbpass
+  - set rhosts
+  
+## Get SID of Users 
+  - enum4linux -r -u 'admin' -p 'password1' 192.x.x.x
+  
+
+  
+## FTP
+- Maybe use Hydra to Bruteforce ftp: hydra -l <USERNAME> -P <PATH TO PASS-FILE> <IP> ftp
+- Check for anonymous login: nmap x.x.x.x -p21 --script ftp-anon (Or try manually by username "anonymous" and no password)
+  
+  
+## SSH
+- netcat (nc) can also grab a banner by default connection (just like with an nmap service scan)
+- nmap x.x.x.x -p22 --script ssh2-enum-algos -> Enumerate Alogrithms for Key creation
+- nmap x.x.x.x -p22 --script ssh-hostkey --script-args ssh_hostkey=full -> Grab the full rsa hostkey (WRITE THAT DOWN!)
+- nmap x.x.x.x -p22 --script ssh-auth-methods --script-args="ssh.user=admin" -> show authentication methods -> if it shows none_auth THATS DANGEROUS AND WRITE THAT DOWN!
+- Dictionary Attack: hydra -l <NAME> -P /usr/share/wordlists/rockyou.txt <IP> ssh
+- Bruteforce with NMAP: nmap x.x.x.x -p22 --script ssh-brute --script-args userdb=/root/user
+- METASPLOIT: use auxiliary/ssh/ssh_login -> set RHOSTS, set userpass_file, set STOP_ON_SUCCESS, DEFAULT USERNAME IS ROOT
+  
+  
+## HTTP
+  ### IIS
+  - whatweb <IP or DOMAIN> -> basic enumeration
+  - dirb http://<DOMAIN or IO> -> Find directories with default wordlist
+  - browsh --startup-url http://x.x.x.x/Default.aspx -> Rendering a website in shell
+  - nmap scripts:
+    - nmap x.x.x.x -sV -p80 --script http-enum
+    - nmap x.x.x.x -sV -p80 --script http-headers (HTTP HEADER INFORMATION)
+    - nmap x.x.x.x -sV -p80 --script http-methods --script-args http-methods.url-path=/webdav/ (or something else..)
+    - nmap x.x.x.x -sV -p80 --script http-webdav-scan --script-args http-methods.url-path=/webdav/ -> WEBDAV Scan
+  
+  ### APACHE
+  - the same from above applies also here!
+  - msfconsole
+    - use auxiliary/scanner/http/http_version (check the options and run)
+    - use auxiliary/scanner/http/brute_dirs -> Bruteforce / Wordlist Directories
+    - ROBOTS.TXT: use auxiliary/scanner/http/robots_txt
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  
