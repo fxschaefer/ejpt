@@ -294,7 +294,9 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - use auxiliary/admin/mssql/mssql_enum_sql_logins -> Enumerating possible Logins
     - use auxiliary/admin/mssql/mssql_exec -> check if you can run commands -> set cmd whoami (just as an example)
     - use auxiliary/admin/mssql/mssql_enum_domain_accounts
-    - 
+ 
+  
+# Assessment Methodologies: Vulnerability Assessment
   
   
   
