@@ -271,7 +271,7 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - via msfconsole -> use auxiliary/scanner/mysql/mysql_login -> set all options (pass_file etc.), set stop_on_success true and verbose to false!
     - via hydra -> hydra -l root -P <wordlist> x.x.x.x mysql
   
-  ##MSSQL
+  ## MSSQL
   - nmap x.x.x.x -p1433 --script ms-sql-info -> general information
   - nmap x.x.x.x -p1433 --script ms-sql-ntlm-info --script-args mssql.instance-port=1433 -> ntlm info
   - nmap x.x.x.x -p1433 --script ms-sql-brute --script-args userdb=<PATH>,passdb=<PATH> -> Bruteforce / Dictionary Attack
