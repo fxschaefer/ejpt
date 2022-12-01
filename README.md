@@ -298,6 +298,12 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
 # Assessment Methodologies: Vulnerability Assessment
   
+  ## Vulnerability overview
+  - What is a vulnerability? (NIST) -> A weakness in the computational logic (e.g. code) found in software and hardware components that, wen exploited, results in a negative impact to confidentiality, integrity, or availability.
+  
+  - CVE (Common Vulnerabilities and Exposures)
+  - NVD (National Vulnerability Database)
+  
   
   
   
