@@ -304,6 +304,27 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - CVE (Common Vulnerabilities and Exposures)
   - NVD (National Vulnerability Database)
   
+
+# Compliance Check of Systems
+  
+  - https://www.stigviewer.com/
+  - https://www.niwcatlantic.navy.mil/scap/ (SCAP Vulnerability Scanner) -> Download here: https://public.cyber.mil/stigs/scap/
+  
+# Host and Network Penetration Testing: System / Host Based Attacks
+  - Most frequently exploited windows services
+    - IIS (TCP 80 /443)
+    - WebDAV (TCP 80 / 443) -> HTTP extension that allows clients to update, delete, move and copy files in a webserver. (Web Server act as a File-Server)
+    - SMB / CIFS (TCP 445) -> Network File Sharing
+    - RDP (TCP 3389) -> GUI Remote Access Protocol
+    - WinRM (TCP ports 5986/443) -> Windows remote management protocol that can be used to faciliate remote access with Windows Systems
+  
+  
+  ### Exploiting Microsoft IIS WebDAV
+    - run nmap -sV -p xxx --script=http-enum x.x.x.x to find out if a webserver uses WebDAV
+    - run "davtest" command to enumerate with parameters -url -auth username:password to perform some checks of webdav server
+    - use "cadaver http://xxxxxxxx/webdav/" to access contents within the webdav server
+  
+  
   
   
   
