@@ -359,13 +359,30 @@ With an anonymous null session you can access the IPC$ share and interact with s
     
     
     
-    ### Exploiting RDP
+    ### Exploiting RDP (Bruteforce)
     
   - RDP runs by default on TCP 3389, but be aware and always do a full scan, because some companies switch to a different port
   - Veryfiy if a port is used for RDP with metasploit module auxiliary/scanner/rdp/rdp_scanner
   - Bruteforce RDP with hydra: hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt rdp://10.0.0.31 -s 3333 (s specifies the Port)
   
   - use xfreerdp to connect: xfreerdp /u:administrator /p:qwertyuiop /v:10.0.0.31:3333
+  
+  ### Exploiting Windows CVE-2019-0708 RDP Vulnerability (BlueKeep)
+  - Bluekeep allows attackers to remotely execute arbitary code and gain access to a Windows system
+  - You will always get an elevated shell (system)
+  - Effects XP, Vista, Windows 7, Windows Server 2008 & R2
+  - Exploit is very instable and may cause system crashes frequently
+  - there are msf modules to exploit this vulnerability. Just search for bluekeep
+  - THIS EXPLOIT IS NOT RECOMMENDED TO RUN IN A VULNERABLITY ASSESSMENT, BECAUSE KERNEL EXPLOITS CAN CRASH SYSTEMS AND MAY CAUSE DATA LOSS!!!!!
+  
+  
+  
+  ### Exploiting WinRM
+  
+  
+  
+  
+  
   
   
   
