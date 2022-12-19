@@ -390,7 +390,7 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   - evil-rinrm.rb -u administrator -p 'tinkerbell' -i x.x.x.x (Directly establish a PowerShell connection, thats AWESOME!)
   
-  - metasploit: search for "winrm_script" and use the exploit (set FORCE_VBS to true; Fill out all required fields) -> This is used to get a meterpreter session and obtain system rights! <3
+  - metasploit: search for "winrm_script" and use the exploit (set FORCE_VBS to true; Fill out all required fields) -> This is used to get a meterpreter session and obtain system rights! <3 (But credentials are needed :()
   
   
   
