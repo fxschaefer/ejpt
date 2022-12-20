@@ -409,6 +409,18 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - Windows-Kernel-Exploits: https://github.com/SecWiki/windows-kernel-exploits
   - Windows-Exploits-Suggester: https://github.com/AonCyberLabs/Windows-Exploit-Suggester
   
+  -> You can do that with metasploit, just search for suggester post exploitation module (after you have a session; You will need to specify the session as an option.)
+  
+  ### UAC Bypassing with UACMe
+  
+  - UAC is the User Account Control and is present in every Version of Windows since Windows Vista.
+  - UAC is used to ensure that changes to the os require approval from an administrator
+  - Attacks can bypass UAC to execute malicious executables with elevated privileges
+  
+  - You will need a local administrators password account! (Thats a prerequisite!)
+  - Tool we are going to use: https://github.com/hfiref0x/UACME
+  - You will need to transfer this executable to a client and you can use it to run executables with elevated privileges without a confirmation of an admin.
+  - When UAC is set to the highest integrity level, it is very difficult to bypass. Only works fine with default settings
   
   
   
