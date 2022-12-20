@@ -422,7 +422,10 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - You will need to transfer this executable to a client and you can use it to run executables with elevated privileges without a confirmation of an admin.
   - When UAC is set to the highest integrity level, it is very difficult to bypass. Only works fine with default settings
   
+  - Used Command in the lab: Akagi64.exe 23 C:\Users\admin\AppData\Local\Temp\backdoor.exe
   
+  
+  # GET FAMILIAR WITH MSFVENOM (generating rev tcp payload) and IN GENERAL WITH MSFCONSOLE! BYPASSUAC LAB IS GREAT TO LEARN
   
   
   
