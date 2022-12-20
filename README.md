@@ -393,6 +393,20 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - metasploit: search for "winrm_script" and use the exploit (set FORCE_VBS to true; Fill out all required fields) -> This is used to get a meterpreter session and obtain system rights! <3 (But credentials are needed :()
   
   
+  ## Windows Privilege Escalation
+  Privilege escalation = elevation of privileges from a user to another (higher priviledged) via exploring vulnerabilities or misconfigurations
+  
+  ### Windows Kernel Exploits
+  Kernel is the core of an Operating System and is resposible for many operations (I/O, Memory Management)
+  The Windows Kernel is Called "Windows NT" and has two operation modes: User Mode (Programs and services running in user mode have limited access to system resources) and Kernel Mode (unrestricted access to system resources)
+  Privilege escalation on Windows systems will typically follow the following methodology:
+  - Identify kernel vulnerabilities
+  - Downloading, compiling and transferring kernel exploits to the target system
+  
+  Kernel exploits are in most cases very unstable and may cause system damage and data loss. Therfore it is not recommended to do that in a pentesting szenario.
+  
+  To Identify Exploits, use Windows-Exploit-Suggester (It compares targets patch level against microsofts vulnerability database
+  
   
   
   
