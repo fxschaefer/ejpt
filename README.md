@@ -405,7 +405,11 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   Kernel exploits are in most cases very unstable and may cause system damage and data loss. Therfore it is not recommended to do that in a pentesting szenario.
   
-  To Identify Exploits, use Windows-Exploit-Suggester (It compares targets patch level against microsofts vulnerability database
+  To Identify Exploits, use Windows-Exploit-Suggester or Windows-Kernel-Exploits (It compares targets patch level against microsofts vulnerability database
+  - Windows-Kernel-Exploits: https://github.com/SecWiki/windows-kernel-exploits
+  - Windows-Exploits-Suggester: https://github.com/AonCyberLabs/Windows-Exploit-Suggester
+  
+  
   
   
   
