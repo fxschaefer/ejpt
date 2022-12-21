@@ -511,6 +511,20 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - Mimicatz will require elevated privileges in order to run correctly (administrator or system)
   
   
+  - Process in general from a remote computer
+    - Initial exploit and get a meterpreter session
+    - try to elevate privs to admin account
+    - check meterpreter session architecture (x86 is not so good...) with sysinfo
+    - migrate to the lsass proccess to get a 64bit shell and access to the sam db (with kiwi / mimikatz)
+    - lsa_dump_sam -> will dump the syskey and the NTLM hashes
+    - type "help" for help ;)
+  
+  
+  - For the use of mimikatz, visit: https://adsecurity.org/?page_id=1821
+    - privilege::debug
+    - LSADUMP::SAM -> get the SysKey to decrypt SAM entries (from registry or hive). The SAM option connects to the local Security Account Manager (SAM) database and dumps credentials for local accounts. This is used to dump all local credentials on a Windows computer.
+  
+  
   
   
   
