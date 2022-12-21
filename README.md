@@ -454,6 +454,25 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - impersonate_token "COMPUTERNAME\Administrator" -> This will impersonate the token and elevate our privs.
   
   
+  ## Windows File System Vulnerabilities
+  
+  ### Alternate Data Streams (hiding malicious payload and executables in ligitimate files)
+  - Alternate Data Streams (ADS) is an NTFS (New Technology File System) file attribute and was designed to provide compatibility with the MacOS HFS (Hierarchical File System)
+  - Any file created on an NTFS formatted drive will have two different forks/streams
+    - Data stream - Default stream that contains the data of the file
+    - Resource stream - Typically contains the metadata of the file
+  
+  - Attackers can use ADS to hide malicious code or executables in legitimate files in order to evade detection
+  - This can be done by storing the malicious code or executables in the file attribute resource stream (metadata) of a legitimate file.
+  - This technique is usually used to evade basic signature based AVs and static scanning tools
+  
+  - Research again how it's exactly working.
+    - notepad test.txt:secret.txt
+    - type payload.exe > test.txt:payload.exe (Hide an executable)
+    - run this by creating a symbolic link or in cmd via start command (not always working fine)
+  
+  
+  
   
   
   
