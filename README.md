@@ -473,6 +473,46 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   
   
+  ## Windows Credential Dumping
+  
+  ### Windows Password Hashes
+  
+  - Windows OS stores hashed user accounts passowrds locally in the SAM (Security Accounts Manager) database.
+  - Authentication and verification of user credentials is facilitated by the Local Security Authority (LSA)
+  - Windows versions up to Windows Server 2003 utilize two different types of hashes:
+    - LM -> LM is not case sensetive and uses no salts
+    - NTLM
+  - Windows disables LM hashing and utilizes NTLN hashing from Windows Vista onwards!!!
+  - It is likely to come across NTLM and NT hashes! LM hashes are completely outdated!
+  - The SAM Database can - for security reasons - not be copied while the os is running
+  - Attackers can utilize the LSASS process to in-memory dump SAM hashes
+  - In modern versions of Windows, the SAM Database is encrypted with a syskey
+  - Elevated / Administrative privileges are required in order to access and interact with the LSASS process.
+  
+  - NTLM (or NThash) is used by Vista onwards. It is encrypted using the MD4 hashing algorithm.
+  - NTLM Hashing process:
+  ![grafik](https://user-images.githubusercontent.com/58482416/208968684-263c0dad-f5cd-4ea1-861b-85658c142906.png)
+
+  
+  ### Searching for Passwords In Windows Configuration Files
+  - Windows Configuration Files can contain sensetive Information
+  - Unattended Windows Setup Utility is used for mass installations and can left configuration files on the local client
+  - The Unattended Windows Setup Utility will typically utilize one of the follwoing configuration files that contain user account and system configuration information:
+    - C:\Windows\Panther\Unattend.xml
+    - C:\Windows\Panther\Autounattend.xml
+  - NOTE: THE PASSWORD STRINGS MAY BE ENCODED USING BASE64
+  
+  
+  ### Dumping hashes with Mimikatz
+  - Mimikatz is the defacto-standard when it comes to post-exploitation on windows systems
+  - It allows the extraction of clear-text passwords, hashes and Kerberos tickets from memory
+  - It can be used to extract hashes from the lsass.exe process memory where hashes are cached
+  - We utilize the pre-compiled mimikatz tool, but you can also the the meterpreter extension called Kiwi
+  - Mimicatz will require elevated privileges in order to run correctly (administrator or system)
+  
+  
+  
+  
   
   
   
