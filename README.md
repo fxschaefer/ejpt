@@ -12,11 +12,13 @@
 - arp-scan
 - wireshark
 - dig
-- METASPLOIT
+- METASPLOIT AND MSFVENOM (at least rev. tcp meterpreter payload)
 - whatweb
 - davtest
 - cadaver
 - crackmapexec
+- mimikatz / kiwi
+- 
 
 # Assessment Methodologies: Information Gathering
 
@@ -525,7 +527,35 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - LSADUMP::SAM -> get the SysKey to decrypt SAM entries (from registry or hive). The SAM option connects to the local Security Account Manager (SAM) database and dumps credentials for local accounts. This is used to dump all local credentials on a Windows computer.
   
   
+  ### Pass the Hash Attacks
   
+  - What can we do with hashes we've obtained apart from cracking them?
+  - We can utilize NTLM hashes to authenticate with a target system via SMB
+  - We can Use the Metasploit PsExec Module or CrackMapExec
+  
+  - With PsExec Module
+    - use ecploit/smb/psexec
+    - set LPORT, RHOSTS, SMBUser and SMBPass (Here you can specify a clear text password or the hash!)
+  
+  - With crackmapexec
+    - crackmapexec smb x.x.x.x -u Administrator -H "<<HASH>>"
+    - hit enter and here you go. (you can specify commands with the -x option (e.g. -x "ipconfig"))
+  
+  - winrm can also be used to perform a PTH attack
+  
+  
+  # Host & Network Penetration Testing: System/Host Based Attacks  (LINUX-PART)
+  
+  ## Linux Vulnerabilities
+  
+  ### Frequently Exploited Linux Services
+  
+  - Linux Distros share the same Kernel and are all Linux variants. In most cases only the user interface is really different (and the command set in some cases)
+  -Frequently exploited Linux Services
+    - Apache Web Server (80 % of Web-Servers globally!!); TCP 80 /443
+    - SSH; TCP 22
+    - FTP; TCP 21
+    - SAMBA; TCP 445
   
   
   
