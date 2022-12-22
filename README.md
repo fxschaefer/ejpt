@@ -577,6 +577,40 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - FTP authentication requires a username and password combination. As a result, we can perform a bruteforce attack in the FTP Server in order to identify legitimate credentials.
   - In some cases, FTP servers may be configured to allow anonymous access, whick consequently allows anyone to access to the FTP server without providing legitimate credentials.
   
+  - Hydra Bruteforce FTP:
+    - hydra -L /usr/share/.... -P /usr/share/.... -vV 192.168.1.1 ftp (vV is optional)
+  - Or use the ftp-brute NMAP Script.
+  
+  ### Exploiting SSH
+  - SSH authentication can be configured in two ways. Username & Password authentication or Key-based authentication (In case of Username and PW, we can bruteforce this shit. (Or at least try it)
+  - Bruteforce with Hydra: hydra -L /usr/share/... -P /usr/share/... x.x.x.x ssh
+  
+  ### Exploiting SAMBA
+  - Network File Sharing Protocol (TCP 445); It is the Linux implementation of SMB
+  - SAMBA utilizes a unsername and password authentication and we can perform a bruteforce attack with hydra
+  - We can use SMBMap in order to enumerate SAMBA share dirves and list their contents
+  - we can use smbclient to connect to a share
+  
+  - List samba shares on a target with autnentication
+    - smbclient -U admin -L //x.x.x.x
+  - Login to an samba share
+    - smbclient -U admin  //x.x.x.x/sharename
+  - perform a hydra bruteforce attack
+    - hydra -l admin -P /usr/share/wordlists/.... smb x.x.x.x
+  
+  
+  ## Linux Privilege Escalation
+  
+  ### Linux Kernel Exploits
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
