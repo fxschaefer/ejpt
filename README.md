@@ -650,6 +650,20 @@ With an anonymous null session you can access the IPC$ share and interact with s
   # INFO Upgrade a session to a meterpreter session, list sessions -> sessions -u 1
   
   
-
+  # Host & Network Penetration Testing: NEtwork-Based Attacks
+  
+  ## Network-Based Attacks
+  
+  ### Network Based Attacks Part 1 and 2 (Basics)
+  - Common network services: ARP, DHCP, SMB, FTP, Telnet, SSH
+  ### TShark
+  - Tshark is the command-line version of wireshark
+  - see tshark -h to open the help menu
+  - Skipped the lab. Look here if you need some help regarding the commands: https://www.wireshark.org/docs/man-pages/tshark.html
+  
+  ### ARP Poisoning
+  - echo 1 > /proc/sys/net/ipv4/ip_forward
+  - arpspoof -i eth1 -t x.x.x.x -r x.x.x.x
+  - Look at Wireshark and check if we can see some traffic
   
   
