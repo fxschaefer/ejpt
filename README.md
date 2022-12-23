@@ -602,28 +602,33 @@ With an anonymous null session you can access the IPC$ share and interact with s
   ## Linux Privilege Escalation
   
   ### Linux Kernel Exploits
+  - Linux Exploit suggester (for identifying kernel vulnerabilities. Kernel Version and Distribution release version are the most important information) -> https://github.com/mzet-/linux-exploit-suggester
+  - Downlaod, compile (gcc) and run the exploit
+  - KERNEL EXPLOITS ARE TARGETING THE KERNEL / CORE OF AN EXPLOIT AND YOU CAN CAUSE CRASHES AND DATA LOSS (not recommended)
   
   
+  ### Exploiting Misconfigured Cron Jobs
+  - Linux implements task scheduling through a utility called Cron.
+  - Cron is a time-based service that runs applications, script and other commands 
+  - The crontab file is a configuration file that is used by the Cron utility to store and track Cron Jobs that have been created
+  - Cron jobs can also be RUN AS ANY USER ON THE SYSTEM. This is a very important factor to keep an eye on as we will be targeting Cron jobs that have configured to be run as the "root" user.
+  - It's crucial to find a file that is used in a cronjob and we have write access to this file with our current priveleges.
   
+  - In the Lab, we were courious about a file called "message" and we didn't have access to it. Its also strage, that this file in the students home is owned by root, but we didn't know the purpose of this specific file.
+  - So what we can do is that we can search if the specific path to that file is mentioned in a script. Because mostly scripts are stored in the /usr/ directory, we will search for that.
+    grep -rnw /usr -e "/home/student/message"
+  - Get yourself in the sudoers file and allow it all
+  - echo 'echo "student ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers' >> copy.sh
+  - ELEVATE PRIVS AND GET ROOT SHELL WITH "sudo su"
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
+ ### Exploiting SUID Binaries
+  - What is the SUID permission?
+  - In addition to the three main file access permissions (read, write, execute), Linux also provides users with specialized permissions that can be utilized in specific situations. One of these access permissions is the SUID (Set Owner User ID) permission.
+  - When applied, this permission provides users with the ability to execute a script or binary with the permissions of the file owner as opposed to the user that is running the script or binary.
+  - SUID permissions are usually used to provide unprivileged users with the ability to run specific scripts or binaries with root permissions.
+  - Maybe we find something that we can elevate our Privs...
+  - USE https://gtfobins.github.io/
+  - In the lab it was a very easy demonstration. Given two files, one has set the suid bit and the other don't. But the second file waws loaded from the first and we have write privs to that file. So we deleted the loaded file and copied /bin/bash and named it like the loaded file. Now we are root...
   
 
   
