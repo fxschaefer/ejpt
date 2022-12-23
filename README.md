@@ -662,8 +662,12 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - Skipped the lab. Look here if you need some help regarding the commands: https://www.wireshark.org/docs/man-pages/tshark.html
   
   ### ARP Poisoning
-  - echo 1 > /proc/sys/net/ipv4/ip_forward
-  - arpspoof -i eth1 -t x.x.x.x -r x.x.x.x
+  - echo 1 > /proc/sys/net/ipv4/ip_forward (Enable IP forwarding)
+  - arpspoof -i eth1 -t x.x.x.x -r x.x.x.x (t = victim ip; r = router) (basically in the lab, we are targeting the victim server (t) and the client was the router)
   - Look at Wireshark and check if we can see some traffic
+  
+  
+  ## WiFi Security and Traffic analysis
+  
   
   
