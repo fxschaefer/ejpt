@@ -640,7 +640,7 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - ALL ENCRYPTED PASSWORDS FOR THE USERS ARE STORED IN THE SHADOW FILE: /etc/shadow
   - The shadow file can only be accessed by the ROOT user
   - The Passwd File gives us information about the encryption algorithm that is used (see table)
-  **![image](https://user-images.githubusercontent.com/58482416/209317906-349c43ce-a0bc-4342-9514-68886d7123a7.png)
-**
+  **![image](https://user-images.githubusercontent.com/58482416/209317906-349c43ce-a0bc-4342-9514-68886d7123a7.png)**
 
+  
   
