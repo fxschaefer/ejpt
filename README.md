@@ -641,6 +641,15 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - The shadow file can only be accessed by the ROOT user
   - The Passwd File gives us information about the encryption algorithm that is used (see table)
   **![image](https://user-images.githubusercontent.com/58482416/209317906-349c43ce-a0bc-4342-9514-68886d7123a7.png)**
+  - Cracking a Linux shadow hash with john the ripper:
+    - Copy the Line from Shadow (or multiple) in a seperate txt file
+    - john --wordlist=/usr/share/wordlists/rockyou.txt hashes.txt
+    - Mostly john will automatically determine the correct hash algo, but you can also specify that (look at the picture to identify with hash is used)
+  
+  
+  # INFO Upgrade a session to a meterpreter session, list sessions -> sessions -u 1
+  
+  
 
   
   
