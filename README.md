@@ -631,5 +631,16 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - In the lab it was a very easy demonstration. Given two files, one has set the suid bit and the other don't. But the second file waws loaded from the first and we have write privs to that file. So we deleted the loaded file and copied /bin/bash and named it like the loaded file. Now we are root...
   
 
-  
+  ## Linux Credential Dumping
+  ### Dumping Linux Password Hashes
+  - Pass the Hash attacks did'nt really work in Linux, so the only thin we can do with hashes is cracking them!
+  - All information for all accounts on Linux is stored in the passwd file located under: /etc/passwd
+  - We cannot view the passwords in the passwd file because they are encrypted
+  - The passwd file can be read by any user on the system
+  - ALL ENCRYPTED PASSWORDS FOR THE USERS ARE STORED IN THE SHADOW FILE: /etc/shadow
+  - The shadow file can only be accessed by the ROOT user
+  - The Passwd File gives us information about the encryption algorithm that is used (see table)
+  **![image](https://user-images.githubusercontent.com/58482416/209317906-349c43ce-a0bc-4342-9514-68886d7123a7.png)
+**
+
   
