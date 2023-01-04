@@ -650,7 +650,7 @@ With an anonymous null session you can access the IPC$ share and interact with s
   # INFO Upgrade a session to a meterpreter session, list sessions -> sessions -u 1
   
   
-  # Host & Network Penetration Testing: NEtwork-Based Attacks
+  # Host & Network Penetration Testing: Network-Based Attacks
   
   ## Network-Based Attacks
   
@@ -668,6 +668,35 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   
   ## WiFi Security and Traffic analysis
+  
+  
+
+# Host & Network Penetration Testing: The Metasploit Framework
+  
+  ## Metasploit Framework Overview
+  
+  ### Introduction
+  Metasploit Framework is a penetration testing Framework that provides pentesters with a large database of public tested exploits and a robust infrastructure to automate every stage of the pentest lifecycle. The MSF is designed to be modular, allowing for new functionality to be implemented with ease.
+  - Metasploit Pro (Commercial)
+  - Metasploit Express (Commercial)
+  - Metasploit Framework (Community, Open-Source)
+  
+  
+  ### Metasploit Framework Architecture
+  ![image](https://user-images.githubusercontent.com/58482416/210554276-eac68f56-f91f-434b-a60a-7ec3ec6b4f1d.png)
+  - Exploit: A module that is used to take advantege of vulnerability and is typically paired with a payload
+  - Payload: Code that is delivered by MSF and remotly executed on the target after successfull exploitation. An exampke of a payload is a reverse shell that initiates a connection from the target system back to the attacker.
+  - Encoder: Used to encode payloads in order to avoid AV detection. For example, shikata_ga_nai is used to encode windows payloads
+  - NOPS: Used to ensure that payloads sizes are consistent and ensure the stability of a payload when executed.
+  - Auxiliary: A module that is used to perform additional functionality like port scanning and enumeration.
+
+  When working with payloads, MSF provides you with two types of payloads that can be paired with an exploit:
+  
+  - Non-Staged Payload - Payload that is sent to thae target system as is along with the exploit
+  - Staged Payload - A staged payload is sent to the target in two parts, wehreby:
+    - The first part (stager) contains a payload that is used to establish a reverse connection back to the attacker, download the second part of the payload (stage) and execute it.
+  
+  Meterpreter Payload is an advanced multi-functional payload that is executed in memory on the target system making it difficult to detect. It communicates over a stager socket and provides an attacker with an interactive command interpreter on the target system.
   
   
   
