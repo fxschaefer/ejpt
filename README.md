@@ -700,3 +700,49 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   
   
+  ### MSFconsole Fundamentals
+  - Defacto standard for interacting with MSF (ease-of-use all in one interface)
+  - What we need to know:
+    - How to search for modules?
+    - How to select modules?
+    - Hot wo configure module options & values
+    - How to search for payloads
+    - Managing sessions
+    - Additional functionality
+    - Saving your configuration
+  
+  - MSF Module Variables
+    - They allow us to set typically required information such as an IP Address or a Port.
+    - MSF supports Global and Local Variables
+    - Typically userd variables
+      - LHOST (local Host / Attacker system)
+      - LPORT (local Port / attackers port)
+      - RHOST and RHOSTS (one or multiple target IPs)
+      - RPORT (Target Systems Port)
+  
+  - "SEARCH" Command to search for exploits, modules and anything else
+  - "USE" to use a module
+  - "show options" -> show options of a module
+  - "set" RHOSTS -> set a Value of the RHOSTS variable / option
+  - use "crtl + c" to stop a module
+  - "back" to get out of a module
+  - "run" or "exploit" to start the attack
+  
+  - search cve:2017 type:exploit platform:-windows (specific search with filters)
+  
+  ### Creating and Managing Workspaces
+  - Check db connection with "db_status"
+  - Check the Help menu with "workspace -h"
+  - Type "workspace" to check which workspace you are using
+  - Create a new Workspace "workspace -a WORKSPACE NAME"
+  - Switch workspace with "workspace WORKSPACE NAME"
+  - Delete a workspace "workspace -d WORKSPACE NAME"
+  - Rename a workspace "workspace -r WORKSPACE NEW NAME"
+  
+  
+  
+  
+  
+  
+  
+  
