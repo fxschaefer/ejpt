@@ -740,9 +740,29 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - Rename a workspace "workspace -r WORKSPACE NEW NAME"
   
   
+  ## NMAP
+  ### Port Scanning and Enumeration with NMAP
+  - We can output the results of our Nmap scan in to a format that can be imported into MSF for vulnerability detection and exploitation
+    - use the -oX (XML) Option.
+    
+  - Import NMAP Scan Results into MSF
+    - Create a new Workspace e.g. workspace -a NAME
+    - Import: db_import /root/nmap_result_output
+    - Check e.g. via the "hosts" or "services" command in MSF
+    
+  - Run an NMAP Scan within MSF
+    - db_nmap -sV .O x.x.x.x (or something else) and the results will be automatically saved in MSF DB / the Workspace
   
   
+  ## Enumeration (MSF)
+  ### Port Scanning with Auxiliary Modules
   
+  - Auxiliary modules are used to perform functionality like scanning, discovery and fuzzing
+  - We can use auxiliary modules to perform both UDP and TCP Port Scanning as well as enumerating information from services like FTP,SSH and HTTP etc.
+  - Auxiliary Modules can be used during the information gathering phase of a penetration test as well as the post exploitation phase.
+  - Auxiliary Modules have nothing to do with exploitation, so they have NO PAYLOADS!
   
-  
+  - To perform attacks or enumeration via a jumphost you can use the autoroute command
+    - in a meterpreter session run "run autoroute -s TARGET IP"
+    
   
