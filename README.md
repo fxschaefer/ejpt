@@ -788,3 +788,37 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - dir_scanner (directory bruteforcing / scanner)
     - files_dir (interesting file scanner)
     - http_login (Bruteforce on http login form)
+    - apache_userdir_enum (try to enumerate User accounts)
+    - http_put
+    - dir_listing
+  
+  
+  ### MySQL Enumeration
+  - MySQL utilizes TCP port 3306 by default
+  - search type:auxiliary name:mysql
+    - mysql_version
+    - mysql_login
+    - mysqk_enum (simple enumeration with username and password specified)
+    - mysql_sql (interacting with sql)
+    - mysql_schemadump
+    - mysql_hashdump
+    - mysql_writable_dirs
+  
+  ### SSH Enumeration
+  - search type:auxiliary name:ssh
+    - ssh_version
+    - ssh_login
+    - ssh_enumusers
+  
+  ### SMTP Enumeration
+  - SMTP uses TCP 25 by default and can also be configured to run on port 465 and 587
+  - seach type:auxiliary name:smtp
+    - smtp_version
+    - smtp_enum
+    - 
+    
+    
+  
+  
+  
+  
