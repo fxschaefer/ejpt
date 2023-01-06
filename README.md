@@ -765,4 +765,26 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - To perform attacks or enumeration via a jumphost you can use the autoroute command
     - in a meterpreter session run "run autoroute -s TARGET IP"
     
-  
+    
+  ### FTP Enumeration with MSF
+  - We can use multiple auxiliary modules to perform Brute-Force attacks because FTP handles authentication with a username and passwort (or anonymous!)
+  - search :type auxiliary name:ftp (below are some useful modules)
+    - ftp_version (Version scanner)
+    - ftp_login (Brute force)
+    - ftp/anonymous
+    
+  ### SMB Enumeration with MSF
+    - smb_version
+    - smb_enumusers (Enumerate SMB Users)
+    - smb_enumshares (set SHOWFILES true)
+    - smb_login (Bruteforce / Dictionary attack)
+    
+  ### Web Server Enumeration
+  - search type:auxiliary name:http
+    - http_version (http Version detection)
+    - http_header (Header Scan which can be helpful if misconfigured)
+    - robots_txt (show the robots.txt contents)
+    - use curl to pull down websites within a shell
+    - dir_scanner (directory bruteforcing / scanner)
+    - files_dir (interesting file scanner)
+    - http_login (Bruteforce on http login form)
