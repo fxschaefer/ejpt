@@ -827,4 +827,12 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - we can also use searchsploit which brings up exploits available at exploit-dn. You can limit the results to only show msf exploits
   - github "metasploit-autopwn" repo searches the msf db (Download and move it to the plugins directory and in msf type "load db_autopwn")
   
+  ## Vulnerability Scanning with Nessus and MSF
+  - Nessus automates the process of identifying vulnerabilities and also provides us with further information such as the corresponding cve code
+  - We used nessus essentials (limited to 16 ip's)
+  - Skipped this course (i'll try that myself..)
+  
+  
+  
+  
   
