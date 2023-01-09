@@ -815,10 +815,16 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - seach type:auxiliary name:smtp
     - smtp_version
     - smtp_enum
-    - 
     
-    
+  ## Vulnerablility Scanning with MSF
+  - We are looking for Metasploit Exploit modules to find vulnerabilities or misconfigurations on a system.
+  - Nessus scans can be integrated in MSF
   
-  
+  - start a service scan with db_nmap -sS -sV -O x.x.x.x/xx
+  - All results will be added to the nmap database
+  - type "hosts" or "services" to see the results
+  - with the results of the "services", you can type "search type:exploit name:<<SERVICE VERSION>>
+  - we can also use searchsploit which brings up exploits available at exploit-dn. You can limit the results to only show msf exploits
+  - github "metasploit-autopwn" repo searches the msf db (Download and move it to the plugins directory and in msf type "load db_autopwn")
   
   
