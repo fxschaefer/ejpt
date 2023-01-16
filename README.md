@@ -887,6 +887,12 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - Affects multiple Windows Versions from Windows Vista to 10
   - The Vulnerability exists in SMBv1
   
+  ### Exploiting Apache Tomcat
+  - Tomcat is a popular and open source Java servlet web server
+  - Apache Tomcat Webserver is primarily used to host dynamic websites or web applications developed in java
+  - Apache Tomcat V8.5.19 or below is vulnerable to a remote code execution
+      - TRY THIS: exploit/multi/http/tomcat_jsp_upload_bypass
+  
   
   
   
