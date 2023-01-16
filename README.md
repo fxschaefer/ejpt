@@ -876,6 +876,18 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - skipped this.. read a manual to create resource scripts. :)
   
   
+  ## Exploitation (Windows) (MSF)
+  ### Exploiting a vulnerable http file server
+  - HTTP File Server (HFS) is a web server that is designed for file & document sharing
+  - Rejetto HFS is a popular HTTP File Server and Rejetto HFS V2.3 is vulnerable to a remote command execution attack!
+  - search for "rejetto"
+  
+  ### Exploiting MS17-00 SMB Vulnerability (Ethernal Blue)
+  - was used in the WannaCry Ransomware Attack!
+  - Affects multiple Windows Versions from Windows Vista to 10
+  - The Vulnerability exists in SMBv1
+  
+  
   
   
   
