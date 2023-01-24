@@ -908,6 +908,22 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - search for libssh
   - show the options and set the spawn_pty to true to spawn an interactive session
   
+  ### Exploiting a vulnerable smtp server
+  - smtp server haraka (plugin) prior to V2.8.9 is vulnerable to a command injection.
+  - set the payload to linux/x64/meterpreter_reverse_http
+  - fill out the other necessary options and exploit it.
+  
+  
+  ## Post Exploitation Fundamentals (Meterpreter)
+  
+  ### Meterpreter Fundamentals
+  - The Meterpreter (Meta-Interpreter) payload is an advanced multi-functional payload that operates via DLL injection and is executed in memory on the target system, consequently making it difficult to detect
+  - It communicates over a stager socket and provides an attacker with an interactive command interpreter on the target system that facilitates the execution of system commands, file system navigation, keylogging and much more
+  - Meterpreter also allows us to load custom script and plugins dynamically
+  - MSF provides us with various types of meterpreter payloads that can be used based on the target environment and the OS architecture.
+  
+  
+  
   
   
   
