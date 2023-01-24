@@ -893,6 +893,12 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - Apache Tomcat V8.5.19 or below is vulnerable to a remote code execution
       - TRY THIS: exploit/multi/http/tomcat_jsp_upload_bypass
   
+  ## Linux Exploitation
+  
+  ### Exploiting a vulnerable FTP Server
+  - vsftpd is a FTP server for Unix-Like systems and is the default FTP server for Ubuntu, CentOS and Fedora
+  - vsftpd V2.3.4 is vulnerable to a command execution vulnerability
+  
   
   
   
