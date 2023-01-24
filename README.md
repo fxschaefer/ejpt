@@ -899,6 +899,15 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - vsftpd is a FTP server for Unix-Like systems and is the default FTP server for Ubuntu, CentOS and Fedora
   - vsftpd V2.3.4 is vulnerable to a command execution vulnerability
   
+  ### Exploiting Samba
+  - Samba is the Linux implementation of SMB and allows Windows systems to access Linux shares and devices.
+  - Samba V3.5.0 is vulnerable to a remote code execution vulnerability, allowing a malicious client to upload a shared libary to a writeable share, and then cause the server to load and execute it.
+  
+  ### Exploiting a vulnerable ssh server
+  - libssh V0.6.0 - 0.8.0 is vulnerable to an authentication bypass
+  - search for libssh
+  - show the options and set the spawn_pty to true to spawn an interactive session
+  
   
   
   
