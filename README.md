@@ -626,6 +626,9 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - In addition to the three main file access permissions (read, write, execute), Linux also provides users with specialized permissions that can be utilized in specific situations. One of these access permissions is the SUID (Set Owner User ID) permission.
   - When applied, this permission provides users with the ability to execute a script or binary with the permissions of the file owner as opposed to the user that is running the script or binary.
   - SUID permissions are usually used to provide unprivileged users with the ability to run specific scripts or binaries with root permissions.
+  
+  - find suid permissions: find / -perm -u=s -type f 2>/dev/null
+  
   - Maybe we find something that we can elevate our Privs...
   - USE https://gtfobins.github.io/
   - In the lab it was a very easy demonstration. Given two files, one has set the suid bit and the other don't. But the second file waws loaded from the first and we have write privs to that file. So we deleted the loaded file and copied /bin/bash and named it like the loaded file. Now we are root...
