@@ -932,6 +932,8 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - background a session: background (or strg + z)
   - sessions (show active sessions)
   - sessions -h -> get help
+  - search for files: search -d /usr/bin -f *backdoor*    or    search -f *.jpg
+  
   
   
   
