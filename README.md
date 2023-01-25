@@ -937,6 +937,11 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   
   ### Upgrading Command Shells to meterpreter shells
+  - background the open shell session
+  - use post/multi/manage/shell_to_meterpreter
+    - fill options (SESSION) and run!
+  - or you can use sessions -u <nb> to upgrade a command shell to meterpreter automatically
+  
   
   
   
