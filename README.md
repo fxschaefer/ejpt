@@ -946,7 +946,27 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - or you can use sessions -u <nb> to upgrade a command shell to meterpreter automatically
   
   
+  ## Windows Post Exploitation Modules
   
+  - MSF provides us with various post exploitation modules to:
+    - Enumerate user privs
+    - Enumerate logged on users
+    - VM Check
+    - Enumerate installed programs
+    - Enumerate AVs
+    - Enumerate computers connected to a domain
+    - Enumerate installed patches
+    - Enumerate shares
+    
+  - getuid -> show user
+  - getsystem -> try elevate to system privs
+  - migrate <PID> -> migrate meterpreter to another process
+    - we can also use post/windows/manage/migrate
+  - search checkvm -> check if target is a vm
+  - search enum_applications -> enumerate all installed applications
+  - search type:post platform:windows enum_av -> Check which av is installed and if some folders are excluded
+  - search enum_computers -> enumerate computers in a domain
+  - search enum_patches -> IMPORTANT! -> Enumerate Patches 
   
   
   
