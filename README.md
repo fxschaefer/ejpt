@@ -921,6 +921,18 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - It communicates over a stager socket and provides an attacker with an interactive command interpreter on the target system that facilitates the execution of system commands, file system navigation, keylogging and much more
   - Meterpreter also allows us to load custom script and plugins dynamically
   - MSF provides us with various types of meterpreter payloads that can be used based on the target environment and the OS architecture.
+  - Useful Meterpreter commands:
+    - sysinfo
+    - getuid -> current permissions
+    - help (show up the help menu)
+    
+    - Windows Meterpeter has some more advanced features such as keylogging and credential dumping
+  
+  - exit a meterpreter session: exit
+  - background a session: background (or strg + z)
+  - sessions (show active sessions)
+  - sessions -h -> get help
+  
   
   
   
