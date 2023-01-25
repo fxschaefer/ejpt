@@ -936,6 +936,8 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   
   
+  ### Upgrading Command Shells to meterpreter shells
+  
   
   
   
