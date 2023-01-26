@@ -969,6 +969,15 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - search enum_patches -> IMPORTANT! -> Enumerate Patches 
   
   
+  ### Bypassing UAC
+  - UAC is a Windows Security Feature introduced with Windows Vista.
+  - UAC is used to ensure that changes to the os require approval from the administrator
+  - We can utilize "Windows Escalate UAC Protection Bypass (In Memory Injection)" module to bypass UAC by utilizing the trusted publisher certificate through process injection. It will spawn a second shell that has the UAC flag turned off.
+  
+  - meterpreter shell is required! (x64 bit Version required!)
+  - use exploit/windows/local/bypassuac_injection -> can be used to bypass uac
+    - set the payload to x64 meterpreter/reverse_tcp
+    - show options and fill out (maybe we need to adjust the target to x64 (type set TARGET <tab> to autocomplete))
   
   
   
