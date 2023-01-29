@@ -976,8 +976,25 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   - meterpreter shell is required! (x64 bit Version required!)
   - use exploit/windows/local/bypassuac_injection -> can be used to bypass uac
-    - set the payload to x64 meterpreter/reverse_tcp
+    - set the payload to windows/x64/meterpreter/reverse_tcp
     - show options and fill out (maybe we need to adjust the target to x64 (type set TARGET <tab> to autocomplete))
+  
+  
+  
+  ### COMMON ERRORMESSAGE IN PAYLOADS: Exploit failed: RuntimeError The EXE generator now has a max size of 4096 bytes, please fix the calling module
+  THIS MEANS THAT THE PAYLOAD IS TO BIG (STAGELESS), USE A STAGED PAYLOAD!
+  
+  
+  
+  ### Windows Privilege Escalation: Token Impersonation with Incognito
+  ![grafik](https://user-images.githubusercontent.com/58482416/215333885-c4690f25-a67e-4774-b740-bdcb1c936891.png)
+
+  - The following priveleges are required for a successfull impersonaltion attack
+    - SeAssignPrimaryToken: This allows a user to impersonate tokens
+    - SeCreateToken: This allows a user to create an arbitary token with administrative privileges
+    - SeImpersonatePrivilege: This allows a user to create a process under the security context of another user typically with administrative privileges (DAS BRAUCHEN WIR AUF JEDEN FALL!)
+  - Incognito is a built-in meterpreter module that was originally standalone that allow you to impersonate tokens after successful exploitation
+    
   
   
   
