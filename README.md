@@ -994,6 +994,16 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - SeCreateToken: This allows a user to create an arbitary token with administrative privileges
     - SeImpersonatePrivilege: This allows a user to create a process under the security context of another user typically with administrative privileges (DAS BRAUCHEN WIR AUF JEDEN FALL!)
   - Incognito is a built-in meterpreter module that was originally standalone that allow you to impersonate tokens after successful exploitation
+  
+  
+  ### Dumping hashes with mimikatz
+  - The SAM (Security Account Manager) database, is a database file on windows systems that stores users passwords and can be used to authenticate users both locally and remotely.
+  - We can utilize pre-built mimikatz executable, alternatively, if we have a ccess to a meterpreter session on a windows target, we can use the inbuilt meterpreter extension called "Kiwi"
+  - Kiwi allows us to dynamically execute Mimikatz on the target system without touching the disk. (Im Memory)
+  
+  
+  
+  
     
   
   
