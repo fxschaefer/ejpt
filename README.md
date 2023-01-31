@@ -1004,7 +1004,8 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   ### Pass-the-Hash with PSExec
   - capturing or harvesting NTLM hashes or cleartext passwords to authenticate with the target
-  
+  - dump the hashes via a meterpreter session
+  - use the "exploit/windows/smb/psexec" and specify SMBUSER with the Username and SMBPASS with the NTLM Hash (or a valid password) to get a shell.
   
   
     
