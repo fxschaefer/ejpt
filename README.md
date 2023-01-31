@@ -1002,6 +1002,9 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - Kiwi allows us to dynamically execute Mimikatz on the target system without touching the disk. (Im Memory)
   
   
+  ### Pass-the-Hash with PSExec
+  - capturing or harvesting NTLM hashes or cleartext passwords to authenticate with the target
+  
   
   
     
