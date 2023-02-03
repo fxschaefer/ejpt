@@ -1038,6 +1038,8 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - in meterpreter: portfwd add -l 1234 -p <rem. port> -r <victim2>
     - db_nmap -sV -sC -p 1234 localhost
   
+  - to exploit another machine we'll need the bind_tcp meterpreter payload (NOT reverse_tcp)!!!
+  
   
   
   
