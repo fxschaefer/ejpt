@@ -1035,7 +1035,7 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - "run autoroute -s x.x.x.x/xx" to add a route to another subnet that is connected to the compromised host
   - from there we can interact with this subnet over the compromised host.
   - we'll need to setup portforwarding on the first victim, because we need to interact with victim 2 over victim 1. 
-    - in meterpreter: portfwd add -l 1234 -p -r <<victim2>>
+    - in meterpreter: portfwd add -l 1234 -p <rem. port> -r <victim2>
     - db_nmap -sV -sC -p 1234 localhost
   
   
