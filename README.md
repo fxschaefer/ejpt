@@ -1008,7 +1008,10 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - use the "exploit/windows/smb/psexec" and specify SMBUSER with the Username and SMBPASS with the NTLM Hash (or a valid password) to get a shell.
   
   
-    
+  
+  ### Establishing persistence on windows
+  - search for: platform:windows persistence -> you will find a lot of mudules.
+  - a good choice is persistence_service
   
   
   
