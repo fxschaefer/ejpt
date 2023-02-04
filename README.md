@@ -1041,6 +1041,22 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - to exploit another machine we'll need the bind_tcp meterpreter payload (NOT reverse_tcp)!!!
   
   
+  ## Linux Post Exploitation
+  
+  ### Linux Post Exploitation Modules
+  
+  - used module: is_known_pipename (samba exploit) (This module exploits Samba from versions 3.5.0-4.4.14, 4.5.10, and 4.6.4 by loading a malicious shared library.)
+  - used commands to explore the system:
+    - sysinfo
+    - getuid (if uid=0 -> root)
+    - type "shell" and type /bin/bash -i to spawn a bash shell
+    - cat /etc/*issue -> enumerate Linux Version
+    - uname -r -> kernel version
+  - Use post exploit modules
+    - search enum_configs (get all config files)
+    
+    
+    
   
   
   
