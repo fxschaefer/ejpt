@@ -1066,8 +1066,8 @@ With an anonymous null session you can access the IPC$ share and interact with s
     
     
   ### Linux Privilege Escalation: Exploiting a vulnerable program
-    - get a session and upgrade it with sessions x -u
-    
+    - get a session and upgrade it with sessions -u x
+    - i've check the enum_protections module and find out there was a software called "CHKROOTKIT" that is vulnerable to a priv esc. vulnerability
   
   
   
