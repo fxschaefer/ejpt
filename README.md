@@ -1054,8 +1054,19 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - uname -r -> kernel version
   - Use post exploit modules
     - search enum_configs (get all config files)
+    - post/multi/gather/env Linux & Kernel Version
+    - enum_network -> collect all network information
+    - get your enumerated data with the "loot" command
+    - enum_protections -> Check security systems used.
+      - stored in "notes" (type "notes")
+    - enum_system -> gather system and user information
+    - checkcontainer -> Check if we're in a container (e.g. docker)
+    - checkvm - Check if this is a VM
+    - enum_users_history -> gather the user history (bash history file)
     
     
+  ### Linux Privilege Escalation: Exploiting a vulnerable program
+    - get a session and upgrade it with sessions x -u
     
   
   
