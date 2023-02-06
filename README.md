@@ -1070,8 +1070,20 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - i've check the enum_protections module and find out there was a software called "CHKROOTKIT" that is vulnerable to a priv esc. vulnerability
   
   
-  
-  
+  ### Dumping hashes with hashdump
+  - Linux User Account hashes are stored in /etc/shadow.
+  - We need to have root privs to read or this file to do further cracking (with John the Ripper)
+  - obtain a meterpreter session (in this case: is_known_pipename (samba)
+  following commands were used:
+    - post/multi/gather/ssh_creds
+    - post/multi/gather/docker_creds
+    - post/linux/gather/hashdump
+    - post/linux/gather/ecryptfs_creds
+    - post/linux/gather/enum_psk
+    - post/linux/gather/enum_xchat
+    - post/linux/gather/phpmyadmin_credsteal
+    - post/linux/gather/pptpd_chap_secrets
+    - post/linux/manage/sshkey_persistence
   
   
   
