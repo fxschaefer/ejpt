@@ -1086,5 +1086,18 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - post/linux/manage/sshkey_persistence
   
   
+  ### Establish persistence on Linux
+  - add a user for backdoor access with a service name
+    - useradd -m ftp -s /bin/bash
+    - passwird ftp
+    - add to root group: usermod -aG root ftp
+    - usermod -u 15 ftp (used to modify the userid, that it looks that the user has not been added a few minutes ago.)
+  
+  - search platform:linux persistence (we've testet the apt_package_manager_persistence and cron_persistence, but there are a few others)
+  - be aware, that a cronjob persistence mechanism can easily be detected by sysadmins!!!
+  - sshkey_persistence is a good way to establish persistence (difficult to detect)
   
   
+  ## Armitage
+  - GUI Interface with all msfconsole controls
+  - No further notes.
