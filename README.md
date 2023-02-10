@@ -1101,3 +1101,18 @@ With an anonymous null session you can access the IPC$ share and interact with s
   ## Armitage
   - GUI Interface with all msfconsole controls
   - No further notes.
+  
+  
+  
+  # Host & Network Penetration Testing: Exploitation
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
