@@ -1105,9 +1105,25 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   
   # Host & Network Penetration Testing: Exploitation
+  - Penetration Testing Execution Standard: is a pentesting methodology that was developed by a team of infosec practitioners with the aim of addressing the need for a comprehensive and up-to-date standard for pentesting
+  - http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines
+  
+  ![grafik](https://user-images.githubusercontent.com/58482416/218301321-273a4726-5424-4b84-85c5-7751316511ef.png)
+  
+  ## Vulnerability Scanning
+  ### Banner Grabbing
+  - Identifing Services and we need to find out the Service Version to check if an application is vulnerable
+  - Banner Grabbing is an information gathering technique 
+  - Banner GRabbing can be performed with:
+    - Performing a service version detection scan with NMAP (e.g.: nmap -sV -O x.x.x.x)
+      - grab a banner with --script=banner (should be the same with the service version detection, but can be used if -sV fails)
+    - Connecting to the Port with Netcat (nc)
+      - nc x.x.x.x port (e.g. nc 192.168.1.2 22)
+    - Authenticationg with the service (if the service supports authentication), for example SSH, FTP, Telnet etc.
+      - ssh test@x.x.x.x (you dont need valid credentials, sometimes you get the version)
   
   
-  
+
   
   
   
