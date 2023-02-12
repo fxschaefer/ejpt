@@ -1122,8 +1122,14 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - Authenticationg with the service (if the service supports authentication), for example SSH, FTP, Telnet etc.
       - ssh test@x.x.x.x (you dont need valid credentials, sometimes you get the version)
   
+  ### Vulnerability Scanning with nmap scripts
+  - nmap scripts are normally stored in: /usr/share/namp/scripts
+  - use grep to limit the results to a protocol, e.g. ls /usr/share/nmap/scripts/ | grep http
+  - specify a script by: nmap -sV --script=http-enum x.x.x.x -p 80
+  - get a list of vulnerability detection scripts: ls /usr/share/nmap/scripts/ | grep vuln
   
-
+  ### Vulnerability Scanning with Metasploit
+  - normally perform an nmap scan (with Version detection option enabled (sV) and then use the "search" command to find some auxiliary modules to perform some futher scanning. If you find a vulnerability, search for corresponding exploits.
   
   
   
