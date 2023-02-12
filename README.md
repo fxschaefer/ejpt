@@ -1132,8 +1132,49 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - normally perform an nmap scan (with Version detection option enabled (sV) and then use the "search" command to find some auxiliary modules to perform some futher scanning. If you find a vulnerability, search for corresponding exploits.
   
   
+  ## Searching for Exploits
+  
+  ### Searching for publicy available exploits
+    - Exploit code can be found online, but it is crucial to check the source code when downloading and running exploits from unknown sources!!
+    - trusted sources are:
+      - exploit-db https://www.exploit-db.com/ (Check "verified" to only show veryfied exploit code)
+      - rapid7 https://www.rapid7.com/db/ (all exploits found here are included in metasploit) (search is not very good on this page)
+  
+    - use google dorks
+      - vsfpd 2.3.4 site:exploit-db.com
+      - ...
+  - PacketStormSecurity https://packetstormsecurity.com/ is also a good source.
+    - Find exploits
+    - get Vulnerability notes
+    - TOOLS
+  
+  ### Searching for exploits with SearchSploit
+  - If you dont have access to online databases, you can use searchsploit
+  - Kali comes (pre-Packaged) with all exploit-db exploits offline!
+  - SearchSploit is used to search through all exploits
+  - the package is called "exploitdb" (apt-get install exploitdb)
+  - default path: /usr/share/exploitdb
+  - usage: searchsploit <search string>
+  - use searchsploit -m <exploit number> to copy the exploit to the current working directory
+  - search terms:
+    - c (case sensetive)
+    - t (title search; search only through the title)
+    - e (exact search; exactly what you've specified); e.g. searchsploit -e "OpenSSH 7.2"
+    - w (display the exploit-db URL instead of the EDBID)
+  - filters:
+    - searchsploit remote windows smb (search for all remote exploits, with windows as a platform that target SMB)
   
   
+  ## Fixing Exploits
+  
+  
+  
+    
+  
+  
+  
+  
+
   
   
   
