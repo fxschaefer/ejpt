@@ -1165,7 +1165,20 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - searchsploit remote windows smb (search for all remote exploits, with windows as a platform that target SMB)
   
   
-  ## Fixing Exploits
+  ## Cross-Compiling Exploits
+  - In some cases, exploit code will be developed in C / C++ or C#, as a result, you will need to compile the exploit code into a PE (Portable Executable) or binary.
+  - As a Pentester, you must be able to compile exploit code developed in C.
+  
+  - To compile windows c exploits on linux, we need some tools:
+    - MinGW-w64 (install it by: sudo apt-get install mingw-w64)
+    - GNU C compiler (sudo apt-get install gcc)
+  - For Windows:
+    - i686-w64-mingw32-gcc 9303.c -o exploit (This compiles an exploit written in c for windows (64-bit)
+    - i686-w64-mingw32-gcc 9303.c -o exploit -lws2_32 (compile a 32 bit executable)
+  - For linux:
+    - read the compile instructions from the exploit or use gcc.
+    
+  
   
   
   
