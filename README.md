@@ -1177,7 +1177,33 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - i686-w64-mingw32-gcc 9303.c -o exploit -lws2_32 (compile a 32 bit executable)
   - For linux:
     - read the compile instructions from the exploit or use gcc.
+  
+  ## Bind and Reverse Shells
+  ### Netcat fundamentals
+  - Netcat is a networking utility used to read and write data to network connections using TCP or UDP.
+  - Is available for UNIX and Windows OS
+  - Is used to:
+    - Banner Grabbing
+    - Port Scanning
+    - Transferring Files
+    - Bind / Reverse Shells
+  - Use "nc --help" or "man nc" to get a brief introduction to netcat
+    - "-l" listen option
+    - "-n" nodns (do not resolve hostnames)
+    - "-v" verbose level
     
+  - Port Scanning / Connect to Ports / Banner Grabbing:
+    - nc -nv x.x.x.x xx (TCP)
+    - nc -nvu x.x.x.x xx (UDP)
+  
+  - Start a listener
+    - nc -nlvp 4444 (opens up a port on tcp 4444 on the localhost)
+    - nc -nlvup 4444 (opens up a port on udp 4444 on the localhost)
+  
+  - Download a file
+    - On the target (Windows): nc.exe -nlvp 1234 > test.txt
+    - On the attacker side (Linux): nc -nv x.x.x.x 1234 < test.txt
+    - The file will be transferred to the windows machine. If you will do it other way round, flip the statements.
   
   
   
