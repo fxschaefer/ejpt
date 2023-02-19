@@ -1201,8 +1201,27 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - Start a listener
     - nc -nlvp 4444 (opens up a port on tcp 4444 on the localhost)
     - nc -nlvup 4444 (opens up a port on udp 4444 on the localhost)
-  
+    
   - Download a file
-    - On the target (Windows): "nc.exe -nlvp 1234 > test.txt"
-    - On the attacker side (Linux): "nc -nv x.x.x.x 1234 < test.txt"
-                                                                  
+    - On the target (Windows): "nc.exe -nlvp 1234 [smaller sign] test.txt"
+    - On the attacker side (Linux): "nc -nv x.x.x.x 1234 [greater sign] test.txt
+  
+  ### Bind Shells
+  
+  - ![grafik](https://user-images.githubusercontent.com/58482416/219943101-c4c9226f-cb23-4cc0-a9d0-352485488d90.png)
+  - Why are reverse shells better in general?
+    - First, we need to setup a netcat listener on the target (how do we do that when we dont have access to the system?)
+    - Second, it's INBOUND traffic (from the target perspective)!! It will likely be blocked by the firewall of the target system.
+  - With a reverse shell, the roles are switched! 
+  - To build a bind shell, just use the commands mentioned above
+  
+  ### Reverse Shell
+  - It is the opposite of bind shells and the roles are switched.
+  - ![grafik](https://user-images.githubusercontent.com/58482416/219943785-cfd399e0-4699-4804-b080-0cf5ee0b35d4.png)
+
+  ### Reverse Shell Cheatsheets
+  - https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
+  
+
+                                                               
+   
