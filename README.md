@@ -1225,6 +1225,20 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   ## Exploitation Frameworks
   ### The metasploit framework
+  (Nothing new)
+  
+  ### PowerShell Empire
+  - is a pure PowerShell exploitation/post-exploitation framework
+  - it allows to run PowerShell agents without needing powershell.exe
+  - it has modules from keyloggers, detection evasion, priv esc. to hashdumping...
+  - Maintaned by Kali Linux
+  - PowerShell-Empire is primarily designed for windows targets and specialized on exploitation / post-exploitation
+  - Can alsom be seen as a C2 Server for Windows targets.
+  - Starkiller is a GUI Frontend for PowerShell Empire
+  
+  
+  
+  
   
   
                                                                
