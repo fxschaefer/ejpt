@@ -1223,6 +1223,9 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
   - www.revshells.com
   
-
+  ## Exploitation Frameworks
+  ### The metasploit framework
+  
+  
                                                                
    
