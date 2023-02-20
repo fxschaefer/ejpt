@@ -1236,7 +1236,26 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - Can alsom be seen as a C2 Server for Windows targets.
   - Starkiller is a GUI Frontend for PowerShell Empire
   
+  - Install it:
+    - sudo apt-get install powershell-empire starkiller -y
+  - Starup the PowerShell Empire server
+    - sudo powershell-empire server 
+    - default Port (RestAPI): 1337 (used by starkiller)
+  - In another tab, start: sudo powershell-empire client
+    - starts the client to interact with empire
+  - For all other things read the documentation... it's not needed for this course.
   
+  ## Windows Exploitation
+  ### Windows Bacl Box Penetration Test
+  - A Black Box Penetration test is a security assessment whereby the penetration tester is not provided with any information regarding the target system or network (No IP ranges etc.)
+  - The approack is very useful as it demonstrates how an external attacker with no inside knowledge would compromise your machines.
+  
+  ### Port Scanning & Enumeration - Windows
+  - Perform a basic Sevice version detection scan: nmap -sV x.x.x.x
+  - nmap -T4 -PA -sC -sV -p 1-10000 x.x.x.x -oX nmap_10k (more comprehensive scan, XML Output)
+  - import an XML output to msf: db_import /root/Desktop/nmap_10k
+  
+  - also a good way to scan any port: nmap -sV -sC -Pn -T4 -p- 10.2.24.51 -oX nmap-full
   
   
   
