@@ -1257,6 +1257,34 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   - also a good way to scan any port: nmap -sV -sC -Pn -T4 -p- 10.2.24.51 -oX nmap-full
   
+  ### Targeting SMB
+  - enum4linux
+  - smb_enumusers (msf)
+  - hydra
+  
+  AFTER WE HAVE LEGITIMATE CREDENTIALS FOR SMB, WE CAN GET A SHELL WITH PSEXEC.py OR MSF:
+  
+  - locate psexec.py
+  - we can use this script to remotly connect to a target via SMB
+  - copy the py script to a working directory (e.g. desktop) and make it executable (chmod +x psexec.py) and run it with python3
+    - python3 psexec.py Administrator@x.x.x.x
+  - we can also perform this with msf: auxiliary/scanner/smb/psexec
+  
+  
+  ### Targeting MySQL Database Server
+  - nmap -sV -sC -p 3306, 8585 x.x.x.x (8585 WAMP Server for phpmyadmin, may be different!)
+  - use auxiliary/scanner/mysql/mysql_login (brute force)
+  - To connect: mysql -u root -p -h x.x.x.x
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
