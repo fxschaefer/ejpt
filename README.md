@@ -1278,8 +1278,10 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   
   
-  
-  
+  ## Linux Black Box Penetration Test 
+  - The same as above just with Linux.
+  - If smtp is running on the target (port 25), it is very easy to obtain a list of users that we can target:
+    - msf - smtp_enum module will do that for you.
   
   
   
