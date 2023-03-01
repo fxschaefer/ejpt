@@ -1282,6 +1282,12 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - The same as above just with Linux.
   - If smtp is running on the target (port 25), it is very easy to obtain a list of users that we can target:
     - msf - smtp_enum module will do that for you.
+  - use searchsploit too, don't rely only on metasploit!
+  - In the "targeting php" excercise, we've focused on specific versions of php (5.2.x) and they are vulnerable to a php cgi exploit.
+  - check if the phpinfo.php file exists and is accessable.
+  - whenever targeting smb or samba, use smb_version msf module to enumerate the exact Version!
+  - we used the "usermap_script" to exploit samba on a lab. The target version was samba 3.0.20
+  
   
   
   
