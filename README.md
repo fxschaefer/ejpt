@@ -1289,6 +1289,9 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - we used the "usermap_script" to exploit samba on a lab. The target version was samba 3.0.20
   
   
+  ## AV Evasion & Obfuscation
+  - Avoid AntiVirus (Signature Based) Detection with Shellter (Obfuscation & Encryption)
+  
   
   
   
