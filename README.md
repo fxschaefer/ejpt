@@ -1291,8 +1291,26 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   ## AV Evasion & Obfuscation
   - Avoid AntiVirus (Signature Based) Detection with Shellter (Obfuscation & Encryption)
+  - The use of shellter doesn't has a lab attatched, so i assume that is not part of the eJPT exam.
+  
+  - Obfuscating PowerShell Code:
+    - As a pentester, you'll be confornted with PS quite often and scripts will maybe flagged immediately as malicious.
+    - Invoke-Obfuscation is an open source Powershell v2+ command and script obfuscator (by daniel bohannon -> see GitHub)
+    - Clone this Repo locally
+    - We can run PS Scripts in Linux using the PowerShell Module, which comes pre-pachaged on Kali
+    - Sudo apt-get install powershell
+    - run it with "pwsh"
+    - Import-Module ./Invoke-Obfuscation.psd1
+    - Invoke-Obfuscation (This brings up the UI)
+    - The "AST" option works best on Windows 10
+    - Get a malicious script (e.g. a reverse shell) which you want to obfuscate
+    - SET SCRIPTPATH /home/kali...../shell.ps1
+    - AST
+    - ALL
+    - 1
   
   
+      
   
   
   
