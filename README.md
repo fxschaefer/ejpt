@@ -1310,6 +1310,10 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - 1
   
   
+  # Host & Network Penetration Testing: Post-Exploitation
+  
+  
+  
       
   
   
