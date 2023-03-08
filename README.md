@@ -1311,11 +1311,31 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   
   # Host & Network Penetration Testing: Post-Exploitation
+  - Post Exploitation Framework:
+![grafik](https://user-images.githubusercontent.com/58482416/223845644-b044af29-21ee-4f77-a788-1a0aca8221d7.png)
+
+  - Sometimes transferring files and upgrading shells is not neccessary
   
+  ## Windows local enumeration
   
+  ### Enumerate system information
+  - Local enumeration is very important for priviledge escalation!
+  - What is the OS, whats the OS version?
+  - Whats the Hostname?
+  - OS Name
+  - OS Build & Service Pack
+  - OS Architecture (x64 / x86)
+  - Installed updates / hotfixes
   
-      
+  - With Meterpreter:
+    - getuid -> Current User
+    - sysinfo -> Hostname, OS and OS Build, Architecture, Domain
   
+  - With Windows Commands:
+    - hostname -> get the hostname
+    - systeminfo -> Hostname, OS Name, OS Version, Architecture, Default WinDir, Domain, DC Server, Hotfixes installed, Network Interfaces & IPs
+    - wmic qfe get Caption,Description,HotFixID,InstalledOn -> get additional information of updates 
+    - C:\Windows\System32\eula.txt can also reveal important information
   
   
   
