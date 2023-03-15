@@ -1337,6 +1337,17 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - wmic qfe get Caption,Description,HotFixID,InstalledOn -> get additional information of updates 
     - C:\Windows\System32\eula.txt can also reveal important information
   
+  ### Enumeration Users and Groups on Windows
+  - meterpreter -> getuid -> get the user info (currently used)
+  - search "logged_on_users" msf module can tell which users are currently logged on
+  - Manually enumeration on windows:
+    - whoami -> current user + hostname
+    - whoami /priv -> current priviledges
+    - query user -> currently logged on users
+    - net users -> all accounts on the local system
+    - net user USERNAME -> futher information about a user
+    - net localgroup -> list all local groups on the system
+    - net localgroup administrators -> list all users in a group (e.g. administrators)
   
   
   
