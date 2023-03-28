@@ -1350,7 +1350,11 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - net localgroup administrators -> list all users in a group (e.g. administrators)
   
   
-  
-  
+  ### Enumerating Network Information (Windows)
+    - ipconfig -> IPv4/6, Subnet Mask, Gateway, MAC, DNS, DHCP
+    - route print -> Routing table
+    - arp a -> Arp Table can list all devices on the network which the server/client had a connection to.
+    - netstat -ano -> see on which ports does applications on the server listen.
+    - netsh firewall show state OR netsh advfirewall firewall show -> See or configure the firewall rules etc.
                                                                
    
