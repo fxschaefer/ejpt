@@ -1357,4 +1357,29 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - netstat -ano -> see on which ports does applications on the server listen.
     - netsh firewall show state OR netsh advfirewall firewall show -> See or configure the firewall rules etc.
                                                                
-   
+  
+  ### Enumerating Processes and Services
+    - within a meterpreter session type "ps" to list all processes
+    - or use "pgrep explorer.exe" to find the PID of a given process
+    - migrate to antother proccess with "migrate xxxx" in meterpreter
+  
+  Directly from a cmd you can use the following:
+    - net start (services that are started)
+    - wmic service list brief (list all services)
+    - tasklist /SVC (list all running services and processes)
+    - schtasks /query /fo LIST /v (list out all scheduled tasks)
+
+  ### Windows Enumeration automation
+    - JAWS - Just Another Windows Enum Script (GitHub Repo by 411Hall)
+    - post exploit modules:
+      - win_privs
+      - enum_loggd_on_users
+      - checkvm
+      - enum_applications
+      - enum_computers
+      - enum_patches
+      - enum_shares
+  Run the JAWS Enum Script and output it into a txt-file:
+    - powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename JAWS-Enum.txt
+  
+  
