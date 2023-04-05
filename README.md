@@ -1379,7 +1379,43 @@ With an anonymous null session you can access the IPC$ share and interact with s
       - enum_computers
       - enum_patches
       - enum_shares
-  Run the JAWS Enum Script and output it into a txt-file:
+    Run the JAWS Enum Script and output it into a txt-file:
     - powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename JAWS-Enum.txt
+  
+  ## Linux Local Enumeration
+    - We are looking for:
+      - Hostname
+      - Distribution and distribution release version
+      - Kernel Version & Architecture
+      - CPU information
+      - Disk and mounted drives
+      - Installed Packages & software
+  
+  Classic Meterpreter Commands for Enumeration on Linux
+    - Sysinfo (Kernel and Architecture)
+    
+    
+  Bash / Shell Commands for Enumeration
+    - hostname
+    - cat /etc/issue -> Debian Release Version
+    - cat /etc/*release -> more Release Information
+    - uname -a -> Kernel Information & some more infos
+    - env -> Environment variablew
+    - lscpu -> CPU information
+    - lsblk | grep sd -> show storage devices and availavle storage
+    - dpkg -l -> see all packages / software installed on this machine
+  
+  
+  ### Enumerate User / Group Information
+    - meterpreter -> getuid -> when we see a uid=0 it means we are root.
+    
+    - shell commands
+      - whomai -> get current username
+      - groups "username" tells you in which groups a user is.
+      - cat /etc/passwd -> get all users on the system. All service accounts should have "sbin:/usr/sbin/nologin" 
+      - get all non-service user: cat /etc/passwd | grep -v /nologin
+      - ls /home -> all normal user accounts should have a folder here.
+      - currently loggedon users -> "who", "last", "lastlog" commands are useful to find recent users
+      
   
   
