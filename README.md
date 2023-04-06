@@ -1417,5 +1417,10 @@ With an anonymous null session you can access the IPC$ share and interact with s
       - ls /home -> all normal user accounts should have a folder here.
       - currently loggedon users -> "who", "last", "lastlog" commands are useful to find recent users
       
+  ### Enumerating Network information
+    - meterpreter
+      - ifconfig
+      - netstat (tcp and udp services are currently listening)
+  
   
   
