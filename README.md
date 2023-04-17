@@ -1421,6 +1421,49 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - meterpreter
       - ifconfig
       - netstat (tcp and udp services are currently listening)
+      - route
+    - ip a s
+    - cat /etc/hostname
+    - cat /etc/hosts
+    - cat /etc/resolv.conf
+    - arp -a (if not installed: meterpreter session -> arp
+  
+  ### Enumerationg Processess & Cron Jobs
+    - meterpreter
+      - ps (list all proccesses)
+      - pgrep xxx (grep a specific process)
+    - ps (list out processes)
+    - ps aux (includes more info e.g. user, cpu usage etc.)
+    - top (dynamic utitly of viewing processes)
+    - crontab -l -> Display the CronJobs for this user
+    - ls -al /etc/cron* -> list all cron jobs
+    - cat /etc/cron*
+  
+  ### Automating Linux Local Enumeration
+    - LinEnum Tool on Github (rebootuser repository)
+      - Download and transfer the script to the target machine, make it executable (chmod +x) and run it
+    - meterpreter
+      - /linux/gather/enum_config -> Enumerates all config files of the machine
+      - /linux/gather/enum_network -> Gather all network information
+      - /linux/gather/enum_system -> enum system information
+      - /post/linux/gather/checkvm
+  
+  
+  ## Transferring Files
+  ### Setting up a webserver with python
+    - Python comes with a builin module SimpleHTTPServer (python2) and http.server (python3), that can be used to facilitate a simple HTTP Server that gives you standard GET and HEAD request handlers
+    - This Module can be used to host files in any directory on our machine.
+    - python 2
+      - switch to the directory which is hosting the files which you want to transfer
+      - python -m SimpleHTTPServer 80
+      - python3 -m http.server 80
+  
+  
+  
+  
+  
+  
+  
   
   
   
