@@ -1487,6 +1487,32 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - Go through the results and find possible escalation vectors.
   - If you find valid credentials, you can maybe use psexcec to authenticate with the credentials found in the previous step.
   
+  ## Linux Privilege Escalation
+  ### Weak Permissions
+  - LinEnum Script can be used to identify vulnerabilities. In this section, we'll do it manually.
+  - cat /etc/passwd -> identify other users on the system
+  - groups -> groups we're in
+  - cat /etc/groups -> List all groups
+  - groups username -> list the groups a given user is a part of
+  - find / -not -type l -perm -o+w (find all files all users have write permissions on)
+    - look for files in the /etc/ directory. E.g. /etc/shadow -> this is really bad!!
+    - if the /etc/shadow file is writeable for everyone, we can use the openssl command to create an encryped password
+      - openssql passwd -1 -salt abc password
+      - copy the output
+      - paste it in the shadow file and replace the "*"
+  
+  ### SUDO Privileges
+  - https://gtfobins.github.io/
+  - sudo -l
+  - find suid permissions: find / -perm -u=s -type f 2>/dev/null
+  
+  ## Establishing Persistence on windows
+  ### Persistence via Services
+  - metasploit
+    - search persistence_service (requires system or administrative privs.)
+    - specify the LPORT, SESSION and FIRE! :) 
+    - This module will generate a payload, upload it to the target and make it persistent via a service
+    - when quitting the session and you want to reconnect to the target, remember to setup a multi/handler listener with the exact same payload specified and the LPORT specified.
   
   
   
