@@ -1481,6 +1481,11 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - check if ruby is installed
     - ruby: exec "/bin/bash"
   
+  ## Windows Privilege Escalation
+  ### Identifying Windows Privilege Escalation Vulnerabilities
+  - One of the best PrivEsc Check Script: https://github.com/itm4n/PrivescCheck
+  - Go through the results and find possible escalation vectors.
+  - If you find valid credentials, you can maybe use psexcec to authenticate with the credentials found in the previous step.
   
   
   
