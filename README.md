@@ -1551,6 +1551,21 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - Add the Cronjob crontab -i cron
     - Check if added: crontab -l
   
+  ## Dumping & Cracking Windows Hashes
+  ### Dumping and Cracking NTLM Hashes
+    - We've already talked about windows hashes.
+    - Windows OS stores hashes in SAM (Security Accounts Manager) database. (Hashed and stored here)
+    - Authentication and verification of user credentials is facilitated by the Local Security Authority (LSA)
+    - LM hashes is disabled since windows vista. From then, Microsoft is using NTLM
+    - Attackers typically utilize in-memory techniques and tools to dump SAM hashes from the LSASS process cache, because we cannot copy the SAM Database while the OS is running.
+    - NOTE: Elevated / Administrative privs are required in order to access and interact with the LSASS Process. (because its secured with a syskey)
+    - How to dump (tools)
+      - inbuild meterpreter "hashdump" command
+      - mimikatz
+    - We can crack the obtained hashes with:
+      - John the Ripper
+      - Hashcat
+  
   
   
   
