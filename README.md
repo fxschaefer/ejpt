@@ -1582,7 +1582,10 @@ With an anonymous null session you can access the IPC$ share and interact with s
       - john --format=sha512crypt hashes.txt --worlist=rockyou.txt
   
   
-  
+  ## Pivoting Overview
+  ### Pivoting
+    - Pivoting is a post exploitation technique that involves utilizing a compromized host that is connected to multiple networks to gain access to systems within other networks.
+    - 
   
   
   
