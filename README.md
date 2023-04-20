@@ -1566,6 +1566,27 @@ With an anonymous null session you can access the IPC$ share and interact with s
       - John the Ripper
       - Hashcat
   
+  ### Dumping and Cracking Linux Password Hashes
+    - All information for all accounts on Linux is stored in the passwd file located at /etc/passwd
+    - All the passwords for the users are encrypted in the shadow file. It can be found at /etc/shadow
+    - The shadow file can only be accessed and read by the root account (so we need elevated privs!)
+    - How are the encrypted passwords stored in the shadow file? Look at the number after the username encapsulated by the dollar symbol
+      - Value: $1 -> MD5, $2 -> Blowfish, $5 -> SHA-256, $6 -> SHA-512
+      - In most newer Distributions / Linux Versions, the standard hashing algo is SHA-512
+    - Crack the hashes with hashcat:
+      - Get Root Access
+      - Copy the Shadow entry which you want to crack (e.g. root:$6$sgewtGbw$ihhoUYASuXTh7Dmw0adpC7a3fBGkf9hkOQCffBQRMIF8/0w6g/Mh4jMWJ0yEFiZyqVQhZ4.vuS8XOyq.hLQBb.:18348:0:99999:7:::) into another file.
+      - In this case, we'll use the follwoing command to crack
+        - hashcat -m 1800 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
+    - Or with john, we'll use:
+      - john --format=sha512crypt hashes.txt --worlist=rockyou.txt
+  
+  
+  
+  
+  
+  
+  
   
   
   
