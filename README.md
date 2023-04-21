@@ -1617,8 +1617,12 @@ With an anonymous null session you can access the IPC$ share and interact with s
       - open up the session (meterpreter)
       - type: resource /path/to/RC-Script
   
-  
-  
+  ### Clearing your tracks on Linux
+    - always store files which you've transferred in /tmp or create your own
+    - once the system will be restarted, the files will be lost!
+    - Cleaning up with resource scipts are the same as on windows. So just look above
+    - in the users home, there is typically a .bash_history file. (type history to display the history)
+    - delete specific / dangerous commands from the bash_history file to cover your tracks!
   
   
   
