@@ -1585,7 +1585,37 @@ With an anonymous null session you can access the IPC$ share and interact with s
   ## Pivoting Overview
   ### Pivoting
     - Pivoting is a post exploitation technique that involves utilizing a compromized host that is connected to multiple networks to gain access to systems within other networks.
-    - 
+    - compromise the first machine and get a meterpreter shell. That's our starting point.
+    - check the ipconfig / ifconfig
+    - we'll need to add a route (run autoroute -s x.x.x.x/xx) (add the entire network)
+    - because we can only reach the second target over the route we've just created, we'll need to use the inbuild meterpreter portscanner module (tcp)
+    - search portscan
+    - in this case, we found port 80 is open. But it would be mouch better to perform a real nmap scan. so we can perform portforwarding
+    - within meterpreter session, run: portfwd add -l 1234 -p 80 -r x.x.x.x (That means we are portforwarding the remote (victim machine) port 80 to our local machine's port 1234
+    - we can now do the following: nmap -sv -p 1234 localhost (This will scan port 80 on target machine)
+    - If we identified a vulnerability (e.g. BadBlue), we can proceed within msfconsole)
+      - we used the payload /windows/meterpreter/bind_tcp
+      - set the RHOST to the target on the specified remote port (here 80) and exploit it
+    
+  ## Clearing your tracks
+  ### Clearing your tracks on windows
+    - The exploitation and post-exploit phases of a pentest involves actively engaging with target systems and the data that is stored in these systems
+    - We need to be able to clear our tracks and revert any changes that we've done (Defined in the Rules Of Engagement (ROE))
+    - A good practice is to store all your scripts, exploits and binaries in the C:\Temp (Windows) or the /tmp directory on Linux.
+    - Some well designed MSF modules provide you with instructions and resource scripts that provide you with informatioin regarding where the artifacts are stored and how they can be removed.
+    - Clearing Event Logs on Windows should be avoided in a pentest, because event logs are storing important data for some companies.
+    
+    - if you select a module, you can open the advanced options by typing "show advanced" in a module. 
+    - "show info" gives you an overview of the exploit.
+    - All the points mentioned above can maybe give you some idea what the exploit is doing and if it's placing some data on the system.
+    - IF YOU RUN AN EXPLOIT, ALWAYS NOTE DOWN IF A FILE IS BEEING PLACED ON THE TARGET! (see screenshot!)
+      - ![image](https://user-images.githubusercontent.com/58482416/233399750-1b9ebef8-0a40-4fc2-ab76-a7531f0d00a7.png)
+    - Some Modules provide resource scripts (see screenshot)
+      - ![image](https://user-images.githubusercontent.com/58482416/233400128-908568fd-bb6f-4acb-a86e-eb0bf17bbc05.png)
+      - we can cat out the content and see what its doing.
+    - How to use a resource script:
+      - open up the session (meterpreter)
+      - type: resource /path/to/RC-Script
   
   
   
