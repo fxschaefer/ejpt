@@ -1624,6 +1624,35 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - in the users home, there is typically a .bash_history file. (type history to display the history)
     - delete specific / dangerous commands from the bash_history file to cover your tracks!
   
+  # Social Engineering
+  ## Social Engineering Overview
+  ### Social Engineering Fundamentals
+    - Its all about manipulating humans
+        - Impersonation
+        - Pretexting
+        - Emotional Pull
+        - Urgency
+        - Free stuff
+        - Blackmail
+        - Quid pro quo
+  
+    - Common Tactics
+      - Phishing
+        - Spear Phishing (Targeted Phishing)
+        - Whaling (Spear Phishing of high-value individuals)
+        - Smishing (SMS Phishing)
+        - Vishing (Voice Phishing)
+      - Watering Hole
+      - Baiting
+      - Physical Access
+  
+    - Builiding your own campaign: GoPhish (https://getgophish.com/)
+    - Check the documentation on how to use it.
+  
+  
+  
+  
+  
   
   
   
