@@ -1650,6 +1650,16 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - Check the documentation on how to use it.
   
   
+  # Web Application Pen Testing
+  ### Web and HTTP Protocol
+  - Directory busting with dirbuster. This gives you an overview of files / directories that exist on the webserver
+  - dirb http://x.x.x.x
+  
+  - HTTP Methods with curl: Curl allows us to use more http methods then a normal webbrowser would do.
+    - find some useful curl methods here: https://everything.curl.dev/http/cheatsheet
+    - curl -X OPTIONS x.x.x.x -v
+    - upload somethin if you find a writeable directory: curl -T hello.txt http://target-1/uploads/
+    - delete a file: curl -X delete http://target-1/uploads/hello.txt
   
   
   
