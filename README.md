@@ -1672,6 +1672,18 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - we can catch a GET request with the proxy and use the intruder to perform a sniper attack. We can specify a wordlist and run the attack. Remember to add a variable in the payload positions. 
   - the free version / community edition is ultra slow. So when performing either buy it or use gobuster / dirb to enumerate directories and files!
   
+  ### Scanning Web Applications with ZAProxy
+  - OWASP ZAP is very powerful. I'll take a seperate Class to dive in deeper. I don't think it's neccessary for the exam.
+  
+  ### Scanning Web Applications with Nikto
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
