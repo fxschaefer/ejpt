@@ -1676,10 +1676,18 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - OWASP ZAP is very powerful. I'll take a seperate Class to dive in deeper. I don't think it's neccessary for the exam.
   
   ### Scanning Web Applications with Nikto
+  - Nikto does some automatic scans and is a good way to start WebApp Pentesting
+  - Nikto is a command line tool. Start it by typing "nikto" and it shows a short documentation.
+  - nikto -h http://x.x.x.x starts a basic enumeration of the given url
+  - nikto -h https://nmap.org -ssl (when you want to scan an https website, you'll have to use the -ssl option!)
   
+  ### Passive Crawling with BurpSuite
+  - Manually crawling a web application
+  - If on the "Dashboard" Menu the "Live Passive Crawling Option is enabled, and we navigate around on the website, we can view the http history which is located at the "Proxy" Menu.
   
-  
-  
+  ### SQL Injection with SQLMap
+  - sqlmap -u "http://192.34.161.3/sqli_1.php?title=joe&action=search" --cookie "PHPSESSID=xxxxxx; security_level=0" -p title
+  - skipped this module...
   
   
   
