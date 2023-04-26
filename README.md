@@ -1662,8 +1662,11 @@ With an anonymous null session you can access the IPC$ share and interact with s
     - delete a file: curl -X delete http://target-1/uploads/hello.txt
   
   
-  
-  
+  ### Directory Enumeration with GoBuster
+  - It's very much like dirb
+  - gobuster dir -u http://x.x.x.x -w /usr/share/wordlists/xxx.txt (Use a wordlist to enumerate directories)
+  - gobuster dir -u http://x.x.x.x -w /usr/share/wordlists/xxx.txt -b 403, 404 (Error Codes 403 and 404 get silenced)
+  - gobuster dir -u http://x.x.x.x -w /usr/share/wordlists/xxx.txt -b 403, 404 -x .php,.xml,.txt -r (Additional enumerate some file types)
   
   
   
