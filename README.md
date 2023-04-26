@@ -1663,11 +1663,14 @@ With an anonymous null session you can access the IPC$ share and interact with s
   
   
   ### Directory Enumeration with GoBuster
-  - It's very much like dirb
+  - It's very much like dirb but faster ;)
   - gobuster dir -u http://x.x.x.x -w /usr/share/wordlists/xxx.txt (Use a wordlist to enumerate directories)
   - gobuster dir -u http://x.x.x.x -w /usr/share/wordlists/xxx.txt -b 403, 404 (Error Codes 403 and 404 get silenced)
   - gobuster dir -u http://x.x.x.x -w /usr/share/wordlists/xxx.txt -b 403, 404 -x .php,.xml,.txt -r (Additional enumerate some file types)
   
+  ### Directory Enumeration with Burp Suite
+  - we can catch a GET request with the proxy and use the intruder to perform a sniper attack. We can specify a wordlist and run the attack. Remember to add a variable in the payload positions. 
+  - the free version / community edition is ultra slow. So when performing either buy it or use gobuster / dirb to enumerate directories and files!
   
   
   
