@@ -1689,7 +1689,11 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - sqlmap -u "http://192.34.161.3/sqli_1.php?title=joe&action=search" --cookie "PHPSESSID=xxxxxx; security_level=0" -p title
   - skipped this module...
   
-  
+  ### XSS Attack with XSSer
+  - Run XSSer with xsser --url http://x.x.x.x/index.php?page=dns-lookup.php -p "xxxxxxxx"
+  - within the url option, type the whole get request
+  - the p options specifies the payload (what information did you post to the webserver) and replace your string with XSS ![image](https://user-images.githubusercontent.com/58482416/236172789-b56acd4a-164c-4033-8ee9-71851ec463e8.png)
+
   
   
   
