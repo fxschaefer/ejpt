@@ -1694,6 +1694,12 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - within the url option, type the whole get request
   - the p options specifies the payload (what information did you post to the webserver) and replace your string with XSS ![image](https://user-images.githubusercontent.com/58482416/236172789-b56acd4a-164c-4033-8ee9-71851ec463e8.png)
 
+  ### Authenticated XSS Attack with XSSer
+  - we need the cookie for authentication!
+  - In this case, i tested a reflected html injection:
+  ![grafik](https://github.com/fxschaefer/ejpt/assets/58482416/0f068475-c495-4b30-b6a9-3cc45105e2e2)
+
+  
   
   
   
