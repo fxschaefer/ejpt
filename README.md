@@ -1699,9 +1699,25 @@ With an anonymous null session you can access the IPC$ share and interact with s
   - In this case, i tested a reflected html injection:
   ![grafik](https://github.com/fxschaefer/ejpt/assets/58482416/0f068475-c495-4b30-b6a9-3cc45105e2e2)
 
+
+  ### Attacking HTTP Login Form with Hydra
+  - To perform a bruteforce with hydra check the following:
+    - Use burp or chrome / firefox inspection to find out what http-method is used (normally POST). See Screenshot: ![grafik](https://github.com/fxschaefer/ejpt/assets/58482416/65e50bc0-eba7-4a19-9e65-324681df74b5)
+![grafik](https://github.com/fxschaefer/ejpt/assets/58482416/32bf7f4b-44d3-468d-8cb2-516605e8091a)
+    - when done, check the variables that we need to post to the website. You can do this with burp or Chrome / Firefox -> Inspect element -> Network -> mark connection -> Headers -> Edit and Resend Button (marked in yellow above)
+    - Check the response of the website when entered a wrong username / password combination. We need that to tell hydra when a login has failed.
+    - In the trainig, we've used the following command to bruteforce a websites login page:
+    - hydra -l bee -P /usr/share/wordlists/metasploit/common_passwords.txt 192.229.191.3 http-post-form "/login.php:login=bee&password=^PASS^&security_level=0&form=submit:Invalid credentials"
+
   
-  
-  
+  ### Attacking Basic Auth with Burp
+  - This Room was fun. Capture a BASIC Auth request with Burp and take a look at it. Basic Auth is Encoded with Base64. We'll need to send the "Authorization: Basic ...." Variable to the Decoder and see how this is structured. Normally this is username:password. So when we want to attack, we'll send this to the intruder and choose
+    - payload (if username known, simple list)
+    - add passwords or load a list
+    - payload processing: FIRST -> Add Prefix admin: (so the username) and then choose base 64 encoding
+    - (SEE SCREENSHOT) ![grafik](https://github.com/fxschaefer/ejpt/assets/58482416/08af3ad0-6575-4215-b8ce-bc71df8fe873)
+    - LETS GO!
+    
   
   
   
